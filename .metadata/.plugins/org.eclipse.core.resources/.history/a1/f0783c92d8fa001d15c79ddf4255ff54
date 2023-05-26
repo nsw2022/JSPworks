@@ -1,0 +1,9 @@
+package db;
+
+// db 연결 및 종료
+public class JDBCUtill {
+	// 필드
+	
+	
+	
+}

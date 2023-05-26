@@ -1,0 +1,17 @@
+package enums;
+
+import java.util.Calendar;
+
+public class EnumWeek {
+
+	public static void main(String[] args) {
+		Week today = null; // 객체 자료형은 null 초기화
+		
+		Calendar cal = Calendar.getInstance();
+		
+		System.out.println(cal.get(Calendar.DATE));
+		
+
+	}
+
+}

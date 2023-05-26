@@ -1,0 +1,18 @@
+package db;
+
+public class Person {
+
+
+	private String userId;
+	private String userPw;
+	private String name;
+
+	public Person() {}
+
+	public Person(String userId, String userPw, String name) {
+		
+		this.userId = userId;
+		this.userPw = userPw;
+		this.name = name;
+	}
+}

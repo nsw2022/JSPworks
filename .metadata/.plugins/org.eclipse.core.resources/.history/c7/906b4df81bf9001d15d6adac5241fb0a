@@ -1,0 +1,13 @@
+package arraylist1;
+
+import java.util.ArrayList;
+
+public class AraayList1 {
+
+	public static void main(String[] args) {
+		// 10개의 기본적인 공간이 생김
+		ArrayList<String> cartList = new ArrayList<>();
+
+	}
+
+}

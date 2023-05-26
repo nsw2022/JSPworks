@@ -1,0 +1,16 @@
+package arraylist;
+
+import java.util.ArrayList;
+
+import objectarray.Book;
+
+public class BookArrayList {
+
+	public static void main(String[] args) {
+		// 책을 저장할 ArrayList의 공간 생성
+		ArrayList<Book> bookList = new ArrayList<>();
+		System.out.println( bookList.size() );
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package classpart;
+
+public class Circle {
+	Point center; // Point 클래스를 멤버변수로 사용 
+	int radius;
+	
+	public Circle(int x, int y, int radius) {
+		center = new Point(x, y); // 중심점 생성
+		this.radius=radius;
+	}
+	
+}

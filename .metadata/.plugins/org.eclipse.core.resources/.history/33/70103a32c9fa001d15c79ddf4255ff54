@@ -1,0 +1,15 @@
+package exception;
+
+public class ExceptionHandling1 {
+
+	public static void main(String[] args) {
+		// ArrayIndexOutOfBoundsException 
+		int[] num = new int[2];
+		num[0]=1;
+		num[1]=1;
+		num[2]=1;
+		
+		System.out.println(num[2]);
+	}
+
+}

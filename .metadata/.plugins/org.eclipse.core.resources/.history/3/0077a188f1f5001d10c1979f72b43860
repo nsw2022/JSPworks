@@ -1,0 +1,63 @@
+package methods;
+
+import java.util.Scanner;
+
+public class CalcScore {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		boolean run = true; // 상태변수
+		int[] scores = null;// 배열 초기화
+
+		while (run) {
+			try {
+				System.out.println("---------------------------------------------");
+				System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+				System.out.println("---------------------------------------------");
+				System.out.print("선택>");
+
+				int selectNo = Integer.parseInt(sc.nextLine());
+				
+				if (scores != null) { System.out.println("1번부터 입력해주세요"); }
+				
+				if (selectNo == 1) {
+					System.out.print("학생수>");
+					int studentNum = Integer.parseInt(sc.nextLine());
+					scores=new int[studentNum];
+				}else if (selectNo == 2) {
+					
+					for(int i=0; i<scores.length;i++) {
+						System.out.print("scores["+i+"]>");
+						scores[i] = Integer.parseInt(sc.nextLine());
+					}
+					
+				}else if (selectNo == 3) {
+					
+					for(int i=0; i<scores.length;i++) {
+						System.out.println("scores["+i+"]>"+scores[i]);
+					}
+					
+				}else if(selectNo==5){
+					
+					run=false;
+					System.out.println("프로그램을 종료합니다");
+					
+				}else {
+					System.out.println("올바른 선택이 아닙니다. 1번부터 입력해주세요");
+				}
+			}//try
+			catch (Exception e) {
+				System.out.println(e);
+				System.out.println("1번을 먼저 입력해주세요");
+			}//catch
+
+		}// while
+
+		sc.close();
+
+
+	}// main
+
+
+}

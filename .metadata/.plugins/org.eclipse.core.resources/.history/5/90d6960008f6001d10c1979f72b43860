@@ -1,0 +1,10 @@
+package taketrans;
+
+public class Bus {
+	
+	int busNum;// 버스번호
+	int passengerCount; // 승객수
+	int money; // 버스수입
+	
+	
+}

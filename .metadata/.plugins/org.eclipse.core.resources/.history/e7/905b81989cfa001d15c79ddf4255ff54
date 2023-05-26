@@ -1,0 +1,16 @@
+package dateTime;
+
+import java.time.LocalDateTime;
+
+public class LocalDateTime1 {
+
+	public static void main(String[] args) {
+		// LocalDate - 날짜, LocalTime - 시간, LocalDateTime - 날짜와 시간
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(now);
+		
+
+
+	}
+
+}

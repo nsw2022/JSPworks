@@ -1,0 +1,23 @@
+package objectarray;
+
+public class Dog {
+	public String getName() {
+		return dogname;
+	}
+	public void setName(String dogname) {
+		this.dogname = dogname;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public Dog() {}
+	
+	private String dogname;
+	private String type;
+	
+	
+}

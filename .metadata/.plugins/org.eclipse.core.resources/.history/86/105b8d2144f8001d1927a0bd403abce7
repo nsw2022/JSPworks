@@ -1,0 +1,13 @@
+package statics;
+
+public class CardTest {
+
+	public static void main(String[] args) {
+		// 카드번호 101, 102, 103 생성
+		Card c1 = new Card();
+		
+		
+
+	}
+
+}

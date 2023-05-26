@@ -1,0 +1,14 @@
+package classpart;
+
+public class CircleTest {
+
+	public static void main(String[] args) {
+		// 원 객체 생성
+		Circle c1 = new Circle(3, 4, 10);
+		System.out.printf("원의 중심은 (%d, %d)이고, 반지름은 %d입니다.",
+				c1.center.x,c1.center.y,c1.radius);
+		
+		
+	}
+
+}

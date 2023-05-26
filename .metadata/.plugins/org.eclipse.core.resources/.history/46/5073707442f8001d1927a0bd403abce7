@@ -1,0 +1,16 @@
+package statics;
+
+public class StudentTest2 {
+
+	public static void main(String[] args) {
+		// 학번 자동 부여
+		Student kim = new Student();
+		System.out.println("학번: "+kim.getStdId());
+		
+		Student han = new Student();
+		System.out.println("학번: "+han.getStdId());
+		
+		
+	}
+
+}

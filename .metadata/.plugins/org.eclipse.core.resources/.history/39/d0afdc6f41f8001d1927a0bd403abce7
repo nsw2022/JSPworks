@@ -1,0 +1,20 @@
+package statics;
+
+public class StudentTest {
+
+	public static void main(String[] args) {
+		// 학생객체생성 lee - 힙메모리에 위치
+		Student lee = new Student();
+		
+		//	lee.name = "이대한";
+		lee.setName("이대한");
+		System.out.println("이름: "+lee.getName());
+		lee.stdId = 1234;
+		
+		
+		
+				
+
+	}
+
+}

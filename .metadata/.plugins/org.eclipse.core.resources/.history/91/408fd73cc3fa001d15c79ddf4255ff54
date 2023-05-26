@@ -1,0 +1,10 @@
+package inheritance.car;
+
+public class CarArrayList {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

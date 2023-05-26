@@ -1,0 +1,5 @@
+package banking.bankarray;
+
+public class Account {
+
+}

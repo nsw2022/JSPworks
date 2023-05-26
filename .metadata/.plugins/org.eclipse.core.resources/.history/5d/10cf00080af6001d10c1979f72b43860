@@ -1,0 +1,11 @@
+package taketrans;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// 사람 객체 생성
+		Person 승우 = new Person("승우", 1300);
+		승우.showInfo();
+	}
+
+}

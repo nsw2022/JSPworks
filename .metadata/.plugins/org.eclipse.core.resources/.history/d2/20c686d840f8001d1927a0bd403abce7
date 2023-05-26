@@ -1,0 +1,20 @@
+package statics;
+
+public class Student {
+	int stdId;    // 학번
+	String name;  // 이름
+	
+	Student() {} // 기본생성자
+	
+	// get(), set()
+	String getName() {
+		return name;
+	}
+	
+	void setName(String name) {
+		this.name=name;
+		
+	}
+	
+}
+

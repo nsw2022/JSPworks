@@ -1,0 +1,21 @@
+package db;
+
+import java.util.ArrayList;
+
+public class PersonMain {
+
+	public static void main(String[] args) {
+		// Person 자료 검색(목록 조회)
+		PesonDAO dao = new PesonDAO();
+		
+		ArrayList<Person> personList = dao.getPersonList();
+		for (int i = 0; i < personList.size(); i++) {
+			Person person = personList.get(i);
+			
+			String userId = person.getUserId();
+			System.out.println(userId);
+		}
+		
+	}
+
+}

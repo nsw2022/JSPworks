@@ -1,0 +1,12 @@
+package arraylist.studentlist;
+
+public class StudentArrayList {
+
+	public static void main(String[] args) {
+		Student std = new Student(1001, "승우");
+		
+		std.showInfo();
+
+	}
+
+}

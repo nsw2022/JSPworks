@@ -1,0 +1,10 @@
+package methods;
+
+public class StackMethod {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

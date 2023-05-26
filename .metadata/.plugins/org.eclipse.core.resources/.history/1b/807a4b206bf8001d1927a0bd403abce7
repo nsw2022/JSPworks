@@ -1,0 +1,8 @@
+package objectarray;
+
+public class ShallowCopy {
+	public static void main(String[] args) {
+		// 객체 배열의 복사
+		
+	}
+}

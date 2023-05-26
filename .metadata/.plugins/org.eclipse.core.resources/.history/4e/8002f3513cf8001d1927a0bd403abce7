@@ -1,0 +1,25 @@
+package methods;
+
+public class OneUp {
+	
+	// 숫자 1증가 함수
+	public static int oneUp() {
+		int x = 0;
+		x++;
+		return x;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(oneUp()); // 1
+		System.out.println(oneUp()); // 1
+		System.out.println(oneUp()); // 1
+		System.out.println(oneUp()); // 1
+		System.out.println(oneUp()); // 1
+		System.out.println(oneUp()); // 1
+		
+		//x 값 확인
+		System.out.println(x);
+
+	}
+
+}

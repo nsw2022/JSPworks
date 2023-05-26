@@ -1,0 +1,10 @@
+package classpart;
+
+// 점(Point Test)
+public class Point {
+	int x;
+	int y;
+	
+	// public Point() {} // 기본 생성자
+	
+}

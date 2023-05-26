@@ -1,0 +1,16 @@
+package thissample;
+
+public class ThisTest {
+
+	public static void main(String[] args) {
+		Birthday bDay = new Birthday();
+		
+		bDay.setYear(2023);
+		
+		bDay.printThis();
+		System.out.println(bDay);
+		
+
+	}
+
+}

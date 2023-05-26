@@ -1,0 +1,14 @@
+package arraylist.scorlist;
+
+public class StudentTest {
+
+	public static void main(String[] args) {
+		// 학생 객체 생성
+		Student park = new Student(1001, "박마늘");
+		
+		park.koreanSubject("국어", 90);
+		park.showInfo();
+
+	}
+
+}

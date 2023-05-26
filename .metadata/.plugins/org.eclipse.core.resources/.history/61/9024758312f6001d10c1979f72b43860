@@ -1,0 +1,10 @@
+package hiding;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+		Account a1 = new Account("1000-1234", "이몽룡", 50000);
+	
+	}
+
+}

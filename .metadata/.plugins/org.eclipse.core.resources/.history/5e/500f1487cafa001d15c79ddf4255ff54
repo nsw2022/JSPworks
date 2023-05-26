@@ -1,0 +1,18 @@
+package exception;
+
+public class ExceptionHandling2 {
+
+	public static void main(String[] args) {
+		// 명령행 실행
+		// Run - Run Configurations - Arguments
+		String data1 = null;
+		String data2 = null;
+		
+		data1 = args[0];
+		data2 = args[1];
+		
+		System.out.println(data1 + ", "+data2);
+		
+	}
+
+}

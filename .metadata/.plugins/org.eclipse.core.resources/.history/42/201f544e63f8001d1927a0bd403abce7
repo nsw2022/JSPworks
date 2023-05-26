@@ -1,0 +1,13 @@
+package objectarray;
+
+public class Bookname {
+
+	public static void main(String[] args) {
+		// Book 객체 생성 - 책 5권 생성
+		Book[] lib = new Book[5];
+		
+		System.out.println(lib.length);
+
+	}
+
+}

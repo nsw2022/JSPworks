@@ -1,0 +1,18 @@
+package exception;
+
+public class Exception1 {
+
+	public static void main(String[] args) {
+		// NullPointerException 발생 경우
+		String data = null;
+		try {
+			System.out.println(data.toString());
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+
+	}
+
+}

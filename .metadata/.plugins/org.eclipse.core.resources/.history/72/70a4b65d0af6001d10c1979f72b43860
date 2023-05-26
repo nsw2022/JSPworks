@@ -1,0 +1,32 @@
+package taketrans;
+
+// 사람 클래스(참조 자료형)
+public class Person {
+
+	String name;
+	int age;
+	int money;  // 가진돈
+	
+	public Person(String name, int money) {
+		this.name = name;
+		this.money = money;
+	}
+	
+	
+	// 버스를 타는 기능을 하는 메서드
+	// 매개변수 - 자료형 변수이름
+	void takeBus(Bus bus){
+		// new Bus가 생략됨
+		bus.take(1300);
+		this.money -= 1300;
+		
+		
+	};
+	void showInfo(){
+		System.out.printf("%s님의 남은 돈은 %d원 입니다.\n"
+				,name,money);
+		
+	};
+	
+	
+}

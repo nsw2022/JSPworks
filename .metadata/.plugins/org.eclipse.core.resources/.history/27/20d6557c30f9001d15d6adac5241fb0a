@@ -1,0 +1,11 @@
+package arraylist.scorlist;
+
+public class Student {
+	// field 필드(멤버변수)
+	int studentId; 	   // 학번
+	String sutdentName;// 이름
+	
+	
+	
+	
+}

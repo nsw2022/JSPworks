@@ -1,0 +1,19 @@
+package arraylist;
+
+import java.util.ArrayList;
+
+public class ArrayList1 {
+
+	public static void main(String[] args) {
+		// 10개의 기본적인 공간이 생김
+		ArrayList<String> cartList = new ArrayList<>();
+		
+		// 자료 저장 - add() 함수
+		cartList.add("계란");
+		
+		// 특정 1개 요소 가져오기(검색)
+		System.out.println(cartList.get(0));
+
+	}
+
+}

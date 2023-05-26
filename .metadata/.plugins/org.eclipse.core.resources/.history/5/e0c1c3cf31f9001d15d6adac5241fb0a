@@ -1,0 +1,28 @@
+package arraylist.scorlist;
+
+import javax.security.auth.Subject;
+
+public class Student {
+	// field 필드(멤버변수)
+	int studentId; 	   // 학번
+	String sutdentName;// 이름
+	Subject korean;    // 국어
+	Subject math;	   // 수학
+	
+	//생성자
+	public Student(int studentId, String studnetName) {
+		this.studentId=studentId;
+		this.sutdentName=studnetName;
+		korean = new Subject();
+		math = new Subject();
+		
+	}
+	
+	// 국어 성적 입력 메서드
+	public void koreanSubject(String name, int score) {
+		korean.setsutdentNam
+	}
+	
+	// 국어 성적 입력 메서드
+	
+}

@@ -1,0 +1,29 @@
+package db;
+
+public class JdbcTest {
+
+	// 필드
+	static String driverClass = "oracle.jdbc.OracleDriver";
+	static String urL = "jdbc:orcale:thin:@localhost:1521:xe";
+
+	/*
+	 * "jdbc:oracle:thin:@localhost:1521:XE" 의 의미
+	 * 
+	 * jdbc - jdbc 라이브러리
+	 * 
+	 * oracle - 오라클로 연결
+	 * 
+	 * thin - 자바로 연결 (반대는 OCI - OS로 작동)
+	 * 
+	 * @localhost - 내 내부 아이피로 접속
+	 * 
+	 * 1521 - 포트번호
+	 * 
+	 * XE - 리스너
+	 */
+
+	public static void main(String[] args) {
+
+	}
+
+}

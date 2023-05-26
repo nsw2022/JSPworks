@@ -1,0 +1,27 @@
+package db;
+
+import java.sql.Connection;
+import java.util.ArrayList;
+
+// DAO - 데이터베이스 연결 및 연동(입력, 검색, 수정, 삭제)
+public class PesonDAO {
+	// 필드
+	private Connection conn = null;	
+	
+	// 자료 삽입
+	public void insertPerson(Person person) {
+		//연결 - 클래스 작성 호출(JDBCUtill.java)
+		conn = JDBCUtill.getConnection();
+		//String sql = "INSERT INTO person VALUES('clould','cloud123','구름이',120)";
+		
+		
+	}
+	
+	// 자료 검색(목록)
+	public ArrayList<Person> getPersonList(){
+		conn = JDBCUtill.getConnection();
+		String sql = "SELECT * FROM person";
+		
+		return null;
+	}
+}

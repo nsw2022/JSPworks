@@ -1,0 +1,10 @@
+package twodimention;
+
+public class Household {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

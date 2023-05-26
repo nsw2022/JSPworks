@@ -1,0 +1,12 @@
+package inheritance.airplane;
+
+public class SuperSonicAirPlane extends Airplane{
+
+	@Override // 매서드 재정이 오버라이드
+	public void fly() {
+		// 조건문 - 비행기가 초음속 비행합니다.
+		super.fly(); // 비행기가 비행합니다.
+		
+	}
+	
+}

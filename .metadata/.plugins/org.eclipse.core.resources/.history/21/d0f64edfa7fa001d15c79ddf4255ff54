@@ -1,0 +1,22 @@
+package transport;
+
+public class Vehicle {
+	// 필드
+	String vehicleName; // 차량이름
+	int money;			// 수입
+	int passengerCount=0; // 승객수
+	
+	// 생성자
+	public Vehicle(	String vehicleName) {
+		this.vehicleName=vehicleName;
+	}
+	
+	//운송하다(태우다) - 수입이증가하고 승객수가 증가
+	public void carry(int money) {
+		this.money += money;
+		passengerCount++;
+		
+	}
+	
+	
+}

@@ -1,0 +1,11 @@
+package classpart;
+
+public class CircleTest {
+
+	public static void main(String[] args) {
+		Circle c1 = new Circle(10, 15, 3);
+		System.out.println(c1.
+
+	}
+
+}

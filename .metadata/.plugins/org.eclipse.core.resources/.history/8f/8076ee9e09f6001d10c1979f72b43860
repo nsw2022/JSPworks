@@ -1,0 +1,18 @@
+package taketrans;
+
+public class Bus {
+	
+	int busNum;// 버스번호
+	int passengerCount; // 승객수
+	int money; // 버스수입
+	
+	// 버스의 생성자
+	public Bus(int busNum) {
+		this.busNum=busNum;
+	}
+	
+	// 태우는 기능 메서드
+	
+	
+	
+}

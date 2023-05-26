@@ -1,0 +1,8 @@
+package statics;
+
+public class Student {
+	int stdId;    // 학번
+	String name;  // 이름
+	
+}
+

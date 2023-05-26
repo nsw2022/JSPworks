@@ -1,0 +1,15 @@
+package banking.bankarray;
+
+public class AccountTest {
+
+	public static void main(String[] args) {
+		// Account 클래스 객체 생성
+		Account ac = new Account("1111", "김사원", 10000);
+		System.out.println(ac.getAno());
+		System.out.println(ac.getOwner());
+		System.out.println(ac.getBalance());
+		
+
+	}
+
+}

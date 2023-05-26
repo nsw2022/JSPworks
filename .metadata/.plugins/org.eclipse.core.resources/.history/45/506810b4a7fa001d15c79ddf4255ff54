@@ -1,0 +1,13 @@
+package transport;
+
+public class Vehicle {
+	// 필드
+	String vehicleName; // 차량이름
+	int money;			// 수입
+	int passengerCount; // 승객수
+	
+	public Vehicle(	String vehicleName) {
+		this.vehicleName=vehicleName;
+		
+	}
+}
