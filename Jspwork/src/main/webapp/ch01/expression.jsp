@@ -17,6 +17,9 @@
 	
 	<!-- 전치 연산자 -->
 	<h3>Page Count is <%= ++count %></h3>
+	<script >
+		
+	</script>
 	
 </body>
 </html>
