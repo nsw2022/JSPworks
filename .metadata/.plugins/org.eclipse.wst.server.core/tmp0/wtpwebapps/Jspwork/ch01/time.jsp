@@ -10,13 +10,16 @@
 <title>시간이란...</title>
 <style >
 	#content{width: 90%, margin:20px auto;text-align: center;}
+	h2{color: #00f;}
 </style>
 <script>
-	setInterval(() => {
+ 	 setInterval(() => {
 		let date = new Date();
 		let now = date.toLocaleTimeString();
 		document.getElementById("demo").innerHTML = now;
-	}, 1000);		
+	}, 1000); 
+	
+	
 	
 </script>
 </head>
