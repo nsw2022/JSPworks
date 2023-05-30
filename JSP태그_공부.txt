@@ -1,0 +1,23 @@
+디랙티브 태그<%@ %> <% %>
+액션태그 <jsp:forward..></jsp:forward> - xml방식\
+어떤 페이지에서 다른 페이지로 이동
+sendRedirect()
+location.href="header.jsp"
+
+- request, response, forward
+
+※jsp:useBean
+<jsp:useBean id="clac" class="beans.CalcBean"></jsp:useBean>
+CalcBean calc = new CalcBean ()랑 같은행위
+id를 참조변수로 class가 사용할 class를 쓰는듯
+
+※  jsp:setProperty
+<jsp:useBean id="member" class="beans.MemberBean"/>
+<!-- name이 객체 이름과 같음  -->
+<jsp:setProperty property="id" name="member"/>
+<jsp:setProperty property="name" name="member"/>
+	
+<p>아이디: <jsp:getProperty property="id" name="member"/>  </p>
+<p>이름:  <jsp:getProperty property="name" name="member"/> </p>
+
+파일입출력복습
