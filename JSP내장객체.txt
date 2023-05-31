@@ -12,3 +12,16 @@ response.sendRedirect("loginSuccess.jsp");
 컨텐츠유형
 response.setContentType("text/html; charset=utf-8")
 
+서블릿(servlet) -> jsp
+데이터를 이어주는 컨테이너 같은역할
+MVC패턴에 주로 이용됨
+
+서블릿 생성 방식
+1. 어노테이션 방식(@)
+2. web.xml(환경 설정파일)
+
+jsp(폼) -> servlet - > 브라우저
+
+
+
+
