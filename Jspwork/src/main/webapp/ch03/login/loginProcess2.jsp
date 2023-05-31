@@ -3,6 +3,9 @@
 	pageEncoding="UTF-8"%>
 
 <%
+
+	request.setCharacterEncoding("utf-8");
+
 	// 폼에입력된 데이터 가져오기
 	String uid=request.getParameter("userid");
 	String pw = request.getParameter("passwd");
