@@ -14,5 +14,5 @@
 		calc.calculate();
 	%>
 
-	<p>계산 결과:<jsp:getProperty property="result" name="calc"/></p>
+	<p>계산 결과: <jsp:getProperty property="result" name="calc"/></p>
 </div>

@@ -21,7 +21,5 @@
 	calc.calculate();
 	%>
 
-	<p>
-		계산 결과:
-		<%=calc.getResult()%></p>
+	<p>계산 결과: <%=calc.getResult()%></p>
 </div>
