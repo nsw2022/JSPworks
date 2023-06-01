@@ -11,7 +11,7 @@
 	<div id="container">
 		<h2>계산기</h2>
 		<hr>
-		<form action="/calculator/clac" method="post">
+		<form action="/calculator/clac" method="get">
 			<input type="text" name="num1">
 				<select name="op">
 				<option>+</option>
