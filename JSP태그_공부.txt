@@ -62,4 +62,12 @@ id를 참조변수로 class가 사용할 class를 쓰는듯
 Bean = VO+DAO
 DAO = CRUD
 DTO =  getter/setter 메서드만 가진 클래스 의미
-VO = 클래스(자료형)
+VO = 클래스(자료형) 
+
+======오늘 공부할 목록==========
+jsp:useBean scope="application"
+
+DAO scope=""
+requset - 어떤 페이지에서 다음 페이지 저장
+session - 세션이 발급된 영역
+application - 전체 프로그램 영역에서 저장
