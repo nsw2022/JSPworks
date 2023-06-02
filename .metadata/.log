@@ -6752,3 +6752,12 @@ java.lang.Error: SWT Resource was not properly disposed
 
 !ENTRY org.eclipse.equinox.p2.repository 2 0 2023-06-02 17:39:39.561
 !MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-06-02 18:06:11.889
+!MESSAGE [Info]	ESLint server running in node v18.13.0
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-06-02 18:06:11.944
+!MESSAGE [Warning]	Using Typescript version (user-setting) 4.9.5 from path "C:\Users\Administrator\.p2\pool\plugins\org.eclipse.wildwebdeveloper_1.0.2.202302250247\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-06-02 18:06:11.961
+!MESSAGE [Info]	Typescript Server version info: {version=4.9.5, source=user-setting}
