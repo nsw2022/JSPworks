@@ -5,13 +5,14 @@
 		<item key="DIALOG_Y_ORIGIN" value="396"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="username"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="userName"/>
 			<item value="session"/>
 			<item value="main"/>
 			<item value="eq"/>
@@ -19,6 +20,7 @@
 			<item value="ger"/>
 		</list>
 		<list key="replacehistory">
+			<item value="username"/>
 			<item value=""/>
 		</list>
 	</section>

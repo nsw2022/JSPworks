@@ -18,7 +18,7 @@
 	<table id="tbl_list">
 		<thead>
 			<tr>
-				<th>이름</th><th>전화번호</th><th>이메일</th><th>성별</th>
+				<th>이름</th><th>전화번호</th><th>이메일</th><th>성별</th><th>보기</th><th>삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,9 +30,24 @@
 			%>
 			<tr>
 				<td><%=aB.getusername() %></td>
-				<td><%=aB.getTel() %></td>
+			<%-- 	<td><%=aB.getTel() %></td>
 				<td><%=aB.getEmail() %></td>
-				<td><%=aB.getGender() %></td>
+				<td><%=aB.getGender() %></td> --%>
+				<td>**********</td>
+				<td>**********</td>
+				<td>**********</td>
+				<td>
+					<a href="addrView.jsp?username=<%=aB.getusername() %>">
+						<button type="button">보기</button>
+					</a>
+				</td>
+				<td>
+					<a href="addrDelete.jsp?username=<%=aB.getusername() %>"
+						onclick="return confirm('정말로 삭제하시겠습니까?')">
+						<button type="button" onclick="test()">삭제</button>
+					</a>
+					
+				</td>
 			</tr>
 			<%
 				}
