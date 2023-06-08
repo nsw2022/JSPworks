@@ -8,7 +8,8 @@ ex)
 	// 자바영역
 %>
 
-※ 참고 <%! %> : 자바변수나 메소드 정의사용 전역변수됨 주로 헤드 바디 사이에 작성
+※ 참고
+<%! %> : 자바변수나 메소드 정의사용 전역변수됨 주로 헤드 바디 사이에 작성
 <% %> 자바코드 작성시 사용
 <%= %> 호출 출력
 ...
@@ -19,7 +20,12 @@ ex) jsp 파일을 처음 만들면 맨위에 <@ page content...@> 등의 정보�
 <% include %> jsp 페이지에 다른페이지 포함
 <% taglib %> jsp 내의 사용할 태그 라이브러리 설정
 
-액션태그 - 클라이언트/서버에 어떤 작동을 행하도록 명령을 지시하는 태그
+pagecontext - 원페이지내에서저장 
+pageContext.setAttribute("cart", "달걀");
+<% pageContext.setAttribute("cart", "달걀"); %>
+body 안에    <h3>${cart }</h3>
+
+----------액션태그 - 클라이언트/서버에 어떤 작동을 행하도록 명령을 지시하는 태그---------
 <jsp: 형태로 되어있다>
 forward 페이지 이동
 redirect -> 주소도 완전 바껴서 출력
@@ -28,6 +34,12 @@ dispatch -> second 페이지의 내용이 출력 - 주소는 first로 유지됨
 setProperty/getProperty  는 set과 get 같은느낌
 includ 외부 페이지 이동
 param includ나 forward 안에 값을 보낼 수 있음 그렇기에 자식으로 밖에 이용안됨
+<jsp:includ>
+	<jsp:param>
+</jsp:includ>	
+-----------------------------------------------
+
+
 
 주석<%-- .. --%>
 ================================================
@@ -54,8 +66,7 @@ id를 참조변수로 class가 사용할 class를 쓰는듯
 1.jsp액션태그
 2.지시자태그 new사용(import)
 
-
-=====================
+======웹 표준 구조도=====
 
 파일입출력복습
 
@@ -63,11 +74,58 @@ Bean = VO+DAO
 DAO = CRUD
 DTO =  getter/setter 메서드만 가진 클래스 의미
 VO = 클래스(자료형) 
-
-======오늘 공부할 목록==========
+========useBean목록===============
 jsp:useBean scope="application"
-
 DAO scope=""
 requset - 어떤 페이지에서 다음 페이지 저장
 session - 세션이 발급된 영역
 application - 전체 프로그램 영역에서 저장
+
+========EL언어(Expression Launguage)&&JSTL===============
+
+모델1방식 : jsp - MVC -> 그동안했던것들(jsp로 직접제어)
+모델2방식 06_08부터 시작한방식
+Servlet으로 변수에 값을 할당후 request로 모델을 생성해서 jsp에 전송
+전송한것을 템플릿태그와 jstl로 받아 처리가 목표
+
+
+${ } 로 작성함
+기본적인 산술연산과 비교연산이 가능함 
+eq가 문자비교의 equals임 줄여씀
+lt gt ne 이런거 있는데 헷갈려서 안쓸삘
+
+받아오는 방식에따라 출력하는 방법이 달라짐
+디랙티브 태그 -> <% setParameter("userid") %>
+${param.userid  }
+
+액션태그 -> <jsp:useBean id = "memeber" class="...">
+${member.userid}
+
+JSTL 추가함
+Maven으로가서 jstl을 검색후 2011년버전 .jar파일받아 lib 
+<c: 으로 명령문 제어 자동완성은 잘되는편 아래 폴더 경로에 추가
+E:\NSW\green_project\JSPworks\Jspwork\src\main\webapp\WEB-INF\lib
+
+변수 <c:set var="변수명" value="넣을값"/>
+조건문 <c:if test="${ 조건문  }">
+
+반복문 var 변수 begin 시작 값  end 끝값
+<c:forEach var="i" begin="1" end="9">
+
+자료를 받아서 출력해야할땐  items로 받은후 var로 출력해야한다
+<c:forEach var="받은값제어할변수" items="${서블릿에서 받을값}">
+	<c:out value="${받은값제어할변수}"/>
+</c:forEach>
+
+Controller 만들기(서블릿)
+1.어노테이션 방식@WebServlet("/mvc/mvc01")
+2. web.xml 설정
+
+
+======오늘 공부할 목록==========
+확장자 jar
+모델1방식 : jsp - MVC
+모델2방식 : jsp(MV) + servlet(Controller)
+
+MAVEN Repository안에서 JSTL을 설치함 06_08 jstl.jar
+mvc01.jsp
