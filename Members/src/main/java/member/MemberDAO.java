@@ -14,6 +14,27 @@ public class MemberDAO {
 	private PreparedStatement psmt=null;
 	private ResultSet rs = null;
 	
+	// 가입
+	public void addMember(Member member) {
+		conn = JDBCUtil.getConnection();
+		String sql = "INSERT INTO t_member( memberid,passwd,name,gender ) values(?,?,?,?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getMemberId());
+			psmt.setString(2, member.getPasswd());
+			psmt.setString(3, member.getName());
+			psmt.setString(4, member.getGender());
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, psmt);
+		}
+		
+	}
+	
 	// 회원목록
 	public ArrayList<Member> getMemberList () {
 		ArrayList<Member> memberList = new ArrayList<>();

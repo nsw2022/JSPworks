@@ -107,7 +107,7 @@ Maven으로가서 jstl을 검색후 2011년버전 .jar파일받아 lib
 E:\NSW\green_project\JSPworks\Jspwork\src\main\webapp\WEB-INF\lib
 
 변수 <c:set var="변수명" value="넣을값"/>
-조건문 <c:if test="${ 조건문  }">
+조건문 <c:if test="${ 조건문  }"> <- 속성이름이 test
 
 반복문 var 변수 begin 시작 값  end 끝값
 <c:forEach var="i" begin="1" end="9">
@@ -120,6 +120,28 @@ E:\NSW\green_project\JSPworks\Jspwork\src\main\webapp\WEB-INF\lib
 Controller 만들기(서블릿)
 1.어노테이션 방식@WebServlet("/mvc/mvc01")
 2. web.xml 설정
+
+조건문
+<c:if>
+다중조건문
+<c:choose>
+    <c:when>
+    <c:when>
+    <c:otherwise>
+</c:choose>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+숫자 표기 방식
+<fmt:formatNumber value="3200100" type="number" /> <-- 원단위 구분기호
+<p><fmt:formatDate value="${now}" type="date"/> </p>
+	<p><fmt:formatDate value="${now}" type="time" /> </p>
+	<p><fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh:mm:ss a" /> </p>
+	<p>== 타임존 출력 ==</p>
+	<p><fmt:timeZone value="Europe.London">
+		런던: <fmt:formatDate value="${now}" type="both" /> <br>
+		런던: <fmt:formatDate value="${now}" type="both" dateStyle="full"/> <br>
+
+※ 참고로 type 속성에 오는 값은 date time both 형식 3가지가 있음
 
 
 ======오늘 공부할 목록==========
