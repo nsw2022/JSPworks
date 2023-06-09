@@ -1,0 +1,7 @@
+서블릿 - MainController
+1. url 매핑
+2. 제어함수(DAO, VO)
+
+회원목록 memberList.do-> memberList.jsp
+회원가입 memberForm.do -> memberForm.jsp
+
