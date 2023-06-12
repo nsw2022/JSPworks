@@ -44,5 +44,6 @@
 			<td colspan="2"><input type="button" value="목록"></td>
 		</tr>
 	</table>
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>

@@ -36,6 +36,17 @@ nav{float: right; width:70%;height: 100px;}
 	padding: 10px; font-size: 0.9em;}
 #memberlist table, th, td:last-child(){padding: 0;}
 
+/* boardlist 스타일 게시판  */
+#boardlist{width: 550px; margin: 40px auto;}
+#boardlist table{width: 550px; margin: 30px auto;}
+#boardlist table th{background: #eee;}
+#boardlist table, th, td{border: 1px solid #ccc;
+	border-collapse: collapse; text-align: center;
+	padding: 10px; font-size: 0.9em;}
+#boardlist table, th, td:last-child(){padding: 0;}
+#boardlist .btnWrite{text-align: right;margin-right: 10px;}
+#boardlist .btnWrite a button{padding: 10px;}
+
 /* register 회원가입 */
 #register{width: 400px; margin: 30px auto;}
 #register form{margin: 30px auto;}
@@ -50,4 +61,64 @@ nav{float: right; width:70%;height: 100px;}
 table#detaile{border: 1px solid #ccc;
 	border-collapse: collapse; text-align: center;
 	padding: 10px; font-size: 0.9em;}
-#detaile input{padding: 5px 20px;}
+#detaile input{padding: 5px 0px;}
+
+/* footer 스타일 */
+footer{height: 80px;border-top: 2px solid #222;}
+#bottemMenu{margin: 10px 10px 10px 20px;}
+#bottemMenu li{display: inline-block; margin: 10px 0; padding: 0 10px;
+		border-right: 1px solid #ccc;}
+#bottemMenu li a{color: #444; font-size: 0.9em}
+#bottemMenu li:last-child {
+	border: none;
+}
+
+/* login 스타일 */
+#login {
+  width: 400px;
+  margin: 0 auto;
+}
+
+#login h2 {
+  text-align: center;
+}
+
+#login form {
+  margin: 30px auto;
+}
+
+#login form ul li {
+  margin: 30px;
+}
+
+#login form label {
+  width: 100px;
+  float: left;
+  padding-left: 10px;
+}
+
+#login form .button {
+  width: 400px;
+  text-align: center;
+}
+
+#login form input[type="text"],
+#login form input[type="password"] {
+  width: 200px;
+  padding: 5px;
+}
+
+#login form input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#login form input[type="submit"]:hover {
+  background-color: #286090;
+}
+
+

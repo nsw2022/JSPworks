@@ -8,11 +8,11 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
 </head>
 <body>
-	<div id="container">
 	<jsp:include page="../hearder.jsp" />
+	<div id="container">
 		<section id="register">
 			<h2>회원 가입</h2>
-			<form action="addMember.do">
+			<form action="/addMember.do" method="post">
 				<fieldset>
 					<ul>
 						<li><label for="memberId">아이디 </label> <input type="text"
@@ -42,5 +42,6 @@
 			</form>
 		</section>
 	</div>
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>

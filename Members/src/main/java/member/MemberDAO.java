@@ -88,10 +88,31 @@ public class MemberDAO {
 			JDBCUtil.close(conn, psmt, rs);
 		}
 		
-		
-		
 		return member;
-	}
+	}// getMember 회원 상세보기(정보)
 	
+	// 로그인 체크
+	public boolean checkLogin(Member member) {
+		conn = JDBCUtil.getConnection();
+		String sql = "select * from t_member where memberid = ? and passwd = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getMemberId());
+			psmt.setString(2, member.getPasswd());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				
+
+				
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, psmt, rs);
+		}
+		return false;
+	}
 	
 }
