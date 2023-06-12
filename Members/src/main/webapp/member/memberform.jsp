@@ -5,10 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" type="text/css" href="resources/css/style.css">
+<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
 </head>
 <body>
 	<div id="container">
+	<jsp:include page="../hearder.jsp" />
 		<section id="register">
 			<h2>회원 가입</h2>
 			<form action="addMember.do">

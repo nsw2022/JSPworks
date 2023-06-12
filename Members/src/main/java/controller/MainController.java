@@ -51,9 +51,9 @@ public class MainController extends HttpServlet {
 			// 모델 생성 보내기
 			request.setAttribute("memberList", memberList);
 			
-			nextPage = "memberList.jsp";
+			nextPage = "member/memberList.jsp";
 		}else if (command.equals("/memberform.do")) {
-			nextPage = "memberform.jsp";
+			nextPage = "member/memberform.jsp";
 		}else if (command.equals("/addMember.do")) {
 			// 폼에 입력된 데이터를 받아오기
 			String memberId = request.getParameter("memberId"); 
@@ -70,8 +70,17 @@ public class MainController extends HttpServlet {
 			memberDAO.addMember(newMember); // 외원 매개로 DB에 저장
 			
 			nextPage = "index.jsp";
-		}else if (command.equals("/memeberView.do")) {
-			nextPage = "memberView.jsp";
+		}else if (command.equals("/memberView.do")) {
+			request.setCharacterEncoding("utf-8");
+			response.setContentType("text/html; charset=utf-8");
+			//memberId 받기
+			String memberId =request.getParameter("memberId");
+			
+			Member member = memberDAO.getMember(memberId);
+			
+			request.setAttribute("member", member);
+			
+			nextPage = "member/memberView.jsp";
 		}
 		
 		// 포워딩

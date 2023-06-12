@@ -9,6 +9,7 @@
 
 </head>
 <body>
+	<jsp:include page="hearder.jsp" />
 	<div id="container">
 		<section id="main">
 			<h2>안녕하세요~ 강남커뮤니티입니다</h2>
