@@ -1,0 +1,16 @@
+톰켓 권한인증
+
+1. 톰켓서버 설정
+ <user username="  " password="   " rolses="role1"/>
+
+2  web 설정
+<!-- 보안(권한 설정)  -->
+<security-role>
+	<role-name>role1</role-name>
+</security-role>
+<security-constraint>
+	<web-resource-collection>
+		<web-resource-name>Jspwork</web-resource-name>
+		<url-pattern>/ch06/security01.jsp</url-pattern>
+	</web-resource-collection>
+</security-constraint>

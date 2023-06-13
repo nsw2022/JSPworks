@@ -28,13 +28,15 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${boardList }" var="board">
+					<tr>
 						<td><c:out value="${board.bnum }" /></td>
-						<td><c:out value="${board.title }" /></td>
-						<td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd hh:mm:ss a" /></td>
+						<td> <a href="/boardView.do?bnum=${board.bnum}">
+							<c:out value="${board.title }"/>
+						</a></td>
+						<td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd" /></td>
 						<td><c:out value="${board.hit }" /></td>
 						<td><c:out value="${board.memberId }" /></td>
-						
-					
+					</tr>
 					</c:forEach>
 				</tbody>
 			</table>

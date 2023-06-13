@@ -11,17 +11,15 @@
 </head>
 
 <body>
-	<c:if test="${empty sessionId }">
-		<script type="text/javascript">
-			alert('로그인이 필요합니다')
-			location.href = "/loginForm.do"
-		</script>
-	</c:if>
+	
 	<jsp:include page="../hearder.jsp" />
 	
 			<div id="container">
 				<section id="memberlist">
 					<h2>회원 목록입니다.</h2>
+					<div class="logout">
+						<p><a href="/logout.do">[관리자 로그아웃]</a></p>
+					</div>
 					<table id="tbl_list">
 						<thead>
 							<tr>
@@ -30,6 +28,7 @@
 								<th>이름</th>
 								<th>성별</th>
 								<th>가입일</th>
+								<th>삭제</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -44,6 +43,12 @@
 									<td><c:out value="${member.name}" /></td>
 									<td><c:out value="${member.gender}" /></td>
 									<td><fmt:formatDate value="${member.joinDate}" type="both" /></td>
+									<td>
+										<a href="/deleteMember.do?memberId=${member.memberId }"
+											onclick="return confirm('정말로 삭제하시겠습니까?')">
+											<button type="button">삭제</button>
+										</a>
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>
