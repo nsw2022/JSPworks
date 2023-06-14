@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import common.JDBCUtil;
@@ -131,6 +132,33 @@ public class BoardDAO {
 		} finally {
 			JDBCUtil.close(conn, psmt);
 		}
+	}// 회원삭제 deleteMember
+	
+	// 게시글 수정
+	public void boardUdate(Board board) {
+		// 현재 날짜와 시간 객체 생성
+		Timestamp now = new Timestamp(System.currentTimeMillis());
+		
+		conn=JDBCUtil.getConnection();
+		String sql = "update t_board SET title = ?, content = ?, modifydate = ? where bnum = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, board.getTitle());
+			psmt.setString(2, board.getContent());
+			psmt.setTimestamp(3, now);// 수정날짜를 지금으로함 // setTimestamp()
+			psmt.setInt(4, board.getBnum());
+			psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, psmt);
+		}
+		
+		
+		
 	}
 }
 

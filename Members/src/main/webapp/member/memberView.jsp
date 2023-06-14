@@ -41,9 +41,14 @@
 			<td><input type="text" name="joinDate" value="${member.joinDate}" readonly="readonly"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="button" value="목록"></td>
+			<td colspan="2">
+				<a href="/memberList.do">
+					<button type="button">목록</button>
+				</a>
+			</td>
 		</tr>
 	</table>
+	
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>

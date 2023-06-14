@@ -55,6 +55,7 @@
 					</table>
 
 				</section>
+			<a href="/memberEvent.do" style="margin: 0 auto;"><img alt="사진" src="resources/images/bronx.png"></a>
 			</div>
 			<jsp:include page="../footer.jsp" />
 	

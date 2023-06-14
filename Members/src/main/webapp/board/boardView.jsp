@@ -18,34 +18,42 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><input type="text" name="title" value="${board.title}" readonly="readonly"></td>
+						<td><input type="text" name="title" value="${board.title}"
+							readonly="readonly"></td>
 					</tr>
-					
+
 					<tr>
-						<td><textarea rows="8" cols="100" name="content" readonly="readonly">${board.content}</textarea></td>
-					
+						<td><textarea rows="8" cols="100" name="content"
+								readonly="readonly">${board.content}</textarea></td>
+
 					</tr>
-					
+
 					<tr>
-						<td>
-							<c:out value="글쓴이: ${board.memberId}"/>
-							작성일 : <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd" />
-						
+						<td> 
+							<c:out value="글쓴이: ${board.memberId}" />
+							<c:choose>
+								<c:when test="${not empty board.modifyDate}"> 
+           								수정일: <fmt:formatDate value="${board.modifyDate}" pattern="yyyy-MM-dd hh:mm a" />
+								</c:when>
+								
+								<c:otherwise>								 
+										작성일: <fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd" />
+								</c:otherwise>
+								
+							</c:choose>
 						</td>
 					</tr>
 					<tr>
-						<td>
-							<c:if test="${board.memberId == sessionId }">
-							<a href="/boardList.do?bnum=<c:out value='${board.bnum }'/>">
-								<button type="button">수정</button>
-							</a>
-							<a href="/deleteBoard.do?bnum=<c:out value='${board.bnum }'/>"
-								onclick="return confirm('정말로 삭제하시겠습니까?')">
-								<button type="button">삭제</button>
-							</a>
-							<a href='/boardList.do'><button type="button">목록</button></a>
-							</c:if>
-						</td>
+						<td><c:if test="${board.memberId == sessionId }">
+								<a href="/boardUpdate.do?bnum=${board.bnum}">
+									<button type="button">수정</button>
+								</a>
+								<a href="/deleteBoard.do?bnum=${board.bnum }"
+									onclick="return confirm('정말로 삭제하시겠습니까?')">
+									<button type="button">삭제</button>
+								</a>
+								<a href='/boardList.do'><button type="button">목록</button></a>
+							</c:if></td>
 					</tr>
 				</tbody>
 			</table>
