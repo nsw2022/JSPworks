@@ -19,7 +19,7 @@
 	<div id="container">
 		<section id="board_reg">
 			<h2>글쓰기</h2>
-			<form action="/addBoard.do" method="get">
+			<form action="/addBoard.do" method="post" enctype="multipart/form-data">
 				<table>
 					<tbody>
 						<tr>
@@ -34,8 +34,13 @@
 						</tr>
 						<tr>
 							<td>
-									<input type="submit" value="등록">
-									<input type="reset" value="취소">
+								<input type="submit" value="등록">
+								<input type="reset" value="취소">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="file" name="fileName">
 							</td>
 						</tr>
 					</tbody>

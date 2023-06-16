@@ -113,6 +113,30 @@ public class MemberDAO {
 			JDBCUtil.close(conn, psmt, rs);
 		}
 		return false;
+	}// 로그인 체크checkLogin()
+	
+	// ID 중복확인
+	public boolean checkId(String memberId) {
+		boolean result = false;
+		
+		conn = JDBCUtil.getConnection();
+		String sql="select decode(count(*), 1 , 'true','false') as result from t_member where memberid = ?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1,  memberId);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getBoolean("result");// 칼럼이 result인값 추출해줌
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, psmt, rs);
+		}
+		return result;
 	}
+
+	
 	
 }

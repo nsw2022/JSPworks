@@ -48,12 +48,14 @@ nav{float: right; width:70%;height: 100px;}
 #boardlist .btnWrite a button{padding: 10px;}
 
 /* register 회원가입 */
-#register{width: 400px; margin: 30px auto;}
+#register{width: 800px; margin: 30px auto;}
 #register form{margin: 30px auto;}
 #register form fieldset {padding-bottom: 20px;}
 #register form ul li{margin: 30px 20px;}
 .button{text-align: center;}
 .button input{padding: 10px 20px;}
+#register input[type="text"]{width:550px;padding: 10px;}
+#register input[type="password"]{width:550px;padding: 10px;}
 
 
 /* detaile 회원 상세보기 */

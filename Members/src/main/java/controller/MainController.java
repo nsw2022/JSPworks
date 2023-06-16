@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -12,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import board.Board;
 import board.BoardDAO;
@@ -84,8 +88,9 @@ public class MainController extends HttpServlet {
 			newMember.setGender(gender);
 			
 			memberDAO.addMember(newMember); // 외원 매개로 DB에 저장
+			session.setAttribute("sessionId", memberId);
+			nextPage = "/index.jsp";
 			
-			nextPage = "index.jsp";
 		}else if (command.equals("/memberView.do")) {//회원상세보기
 			request.setCharacterEncoding("utf-8");
 			response.setContentType("text/html; charset=utf-8");
@@ -98,6 +103,9 @@ public class MainController extends HttpServlet {
 			
 			nextPage = "member/memberView.jsp";
 		}else if (command.equals("/loginForm.do")) {//로그인페이지요청
+			
+			
+			
 			nextPage = "member/loginForm.jsp";
 			
 		}else if (command.equals("/loginProcess.do")) {// 로그인처리
@@ -111,7 +119,7 @@ public class MainController extends HttpServlet {
 			
 			
 			// 로그인 체크 처리
-			Boolean result = memberDAO.checkLogin(memberlogin);
+			boolean result = memberDAO.checkLogin(memberlogin);
 			if (result) {
 				// 세션발급 ( 전역에도 만들어 사용하기 편하게 함 )
 				session.setAttribute("sessionId", memberId);
@@ -120,6 +128,7 @@ public class MainController extends HttpServlet {
 				
 			}else {
 				//1. 알람창 - 자바스크립트
+				
 				out.println("<script>");
 				out.println("alert('아이디와 비밀번호를 확인해주세요')");
 				out.print("history.go(-1)");
@@ -146,20 +155,38 @@ public class MainController extends HttpServlet {
 			nextPage = "board/boardForm.jsp";
 			
 		}else if (command.equals("/addBoard.do")) {
-		
+			
+			String realFolder = "E:\\NSW\\green_project\\JSPworks\\Members\\src\\main\\webapp\\resources\\upload";
+			
+			MultipartRequest multi = new MultipartRequest(request, realFolder, 5*1024*1024,
+					"utf-8", new DefaultFileRenamePolicy());
+			
+			
 			//글쓰기 폼에 입력된 데이터 받아오기
-			String title = request.getParameter("title");
-			String content = request.getParameter("content");
+			String title =multi.getParameter("title");
+			String content = multi.getParameter("content");
 			// memberId는 세션으로 가져와야함
 			String memberId = (String) session.getAttribute("sessionId");
 			
-			Board board = new Board();
-			board.setTitle(title);
-			board.setContent(content);
-			board.setMemberId(memberId);
+			// fileName 속성 가져오기
+			Enumeration<String> files = multi.getFileNames();
+			String name = "";
+			String fileName = "";
+			if (files.hasMoreElements()) {
+				name = (String) files.nextElement();
+				fileName = multi.getFilesystemName(name);// 실제 서버 저장될 이름
+			}
+			
+			
+			
+			Board newboard = new Board();
+			newboard.setTitle(title);
+			newboard.setContent(content);
+			newboard.setMemberId(memberId);
+			newboard.setFileUpload(fileName);
 			
 			// 글쓰기 처리 메서드 호출
-			boardDAO.addBoard(board);
+			boardDAO.addBoard(newboard);
 			
 			//nextPage = "/boardList.do";
 			
