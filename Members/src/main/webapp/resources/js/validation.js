@@ -12,11 +12,16 @@ function checkMember(){
 		let pw2 = form.passwd2.value.replaceAll(" ","");
 		let name = form.name.value.replaceAll(" ","");
 		
-		let good = form.good.value
+		let btnCheck = form.btnCheck.value; // 'Y' or 'N'
+	
+		
+	/*	let good = form.good.value
 		if (good == "" ){
 			alert('중복체크해주세요')
 			return;
-		}
+		}*/
+		
+		
 
 		// 정규 표현식
 		let pw_part1 = /\d+/; // 숫자만
@@ -24,6 +29,11 @@ function checkMember(){
 		let pw_part3 = /[!@#$%^&*()_+]+/; // 특수문자
 		
 		let name_part = /^[가-힣]+$/ // 이름 정규식/^[가-힣]+$/;
+		
+		if(btnCheck == 'N'||id.length < 4 || id.length > 15){
+			alert('ID중복을 확인해주세요')
+			return false
+		}
 
 		if (id.length < 4 || id.length > 15) {
 			alert('아이디는 4~15자로 입력해야 합니다.');
@@ -32,6 +42,7 @@ function checkMember(){
 		}
 		
 		//1. 아이디가 비밀번호가 비어있을때 처리
+		// padding 땜에 공백이 생김으로 trim을 넣어야함
 		if (id.trim() === '' || pw1.trim() === '' || name.trim() ==='' ) {
 			alert('절대 input상자를 절대 공백으로 두지마');
 			return;
@@ -54,6 +65,8 @@ function checkMember(){
 			form.name.select()
 			return
 		}
+		
+		
 		
 	
 		form.submit();

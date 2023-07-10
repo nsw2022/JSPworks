@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import common.JDBCUtil;
+import oracle.net.aso.l;
 
 public class BoardDAO {
 	// 필드
@@ -15,6 +16,111 @@ public class BoardDAO {
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
 
+	// 게시글 총 갯수
+	public int getBoardCount() {
+	    int total = 0;
+	    conn = JDBCUtil.getConnection();
+	    String sql = "SELECT COUNT(*) as total FROM t_board";
+	    
+	    try {
+	        psmt = conn.prepareStatement(sql);
+	        rs = psmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            total = rs.getInt("total");
+	        }
+	        
+	        return total;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCUtil.close(conn, psmt, rs);
+	    }
+	    
+	    return 0;
+	}
+	
+	// 자료 검색
+	public ArrayList<Board> getBoardList(int page){
+		ArrayList<Board> boardList = new ArrayList<>();
+		int pageSize = 10;
+		conn = JDBCUtil.getConnection();
+		String sql = "SELECT * "
+				+ "FROM (SELECT ROWNUM RN, t_board.* "
+				+ "FROM t_board ORDER BY bnum desc) "
+				+ "WHERE RN >= ? AND RN <= ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, (page-1)*pageSize + 1);  //시작행
+			psmt.setInt(2, page*pageSize);  //페이지x페이지당 게시글 수
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				Board board = new Board();
+				board.setBnum(rs.getInt("bnum"));
+				board.setTitle(rs.getString("title"));
+				board.setContent(rs.getString("content"));
+				board.setRegDate(rs.getTimestamp("regdate"));
+				board.setModifyDate(rs.getTimestamp("modifydate"));
+				board.setHit(rs.getInt("hit"));
+				board.setMemberId(rs.getString("memberid"));
+				
+				boardList.add(board);  //개별 board 객체를 추가 저장
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, psmt, rs);
+		}
+		return boardList;
+	}
+	
+	/*
+	 public ArrayList<Board> getBoardList(int page) {
+	      ArrayList<Board> boardList = new ArrayList<>();
+
+	      conn = JDBCUtil.getConnection();
+	      String sql = "SELECT * "
+	            + "FROM (SELECT ROWNUM rn, boards.* "
+	            + "FROM boards ORDER BY bid DESC)"
+	            + "WHERE rn >= ? AND rn <= ?";
+	      
+	      int pageSize = 10;
+
+	      try {
+	    	  psmt = conn.prepareStatement(sql);
+	    	  psmt.setInt(1, (page - 1) * pageSize + 1);   // 시작행
+	    	  psmt.setInt(2, page * pageSize);         // 페이지당 게시글 총개수
+	         
+	         
+	         rs = psmt.executeQuery();
+
+	         while (rs.next()) {
+	            Board board = new Board();
+
+	            board.setBnum(rs.getInt("bid"));
+	            board.setTitle(rs.getString("title"));
+	            board.setContent(rs.getString("contents"));
+	            board.setRegDate(rs.getTimestamp("regdate"));
+	            board.setMemberId(rs.getString("memberid"));
+	            board.setModifyDate(rs.getTimestamp("modifydate"));
+	            board.setHit(rs.getInt("hit"));
+	            board.setFileUpload(rs.getString("fileUploads"));
+
+	            boardList.add(board);
+
+	         }
+
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         JDBCUtil.close(conn, psmt, rs);
+	      }
+
+	      return boardList;
+
+	   }
+	*/
+	
 	// 게시글 목록
 	public ArrayList<Board> getBoardList() {
 		ArrayList<Board> boardList = new ArrayList<>();

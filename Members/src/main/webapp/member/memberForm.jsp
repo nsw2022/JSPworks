@@ -12,27 +12,37 @@
 function checkId() {
     var memberId = $('#memberId').val(); // memberId 값을 가져옴
 
+    if (memberId === "") {
+        alert('아이디를 입력하세요.');
+        return false;
+    }
+
     $.ajax({
         type: "get",
         url: "http://localhost:8080/checkid",
         dataType: "text",
-        data: { memberId: memberId }, // 서블릿으로 memberId 보냄
+        data: { memberId: memberId },
         success: function(data) {
             console.log(data);
             
-            if ($.trim(data) == "usable") {
-                $('#check').text("사용 가능한 ID입니다");
+            if ($.trim(data) == "usable") { // 아이디가 중복되었으면
+                $('#btnCheck').val('Y'); // 중복 버튼을 누름
+                console.log($('#btnCheck').val());
+                $('#check').text("사용 가능한 ID입니다")
+                           .css({'color': 'red', 'padding-top': '5px'}); // not_usable
+                           
+               
             } else {
-                $('#check').text("이미 가입한 ID입니다");
+            	console.log($('#btnCheck').val());
+                $('#check').text("이미 가입한 ID입니다")
+                           .css({'color': 'red', 'padding-top': '5px'});
             }
-            $('#good').val('ㅁㄴㅇㄹ')
+            
         },
         error: function() {
             alert('에러 발생!');
         }
     });
-    
-   
 }
 	
 </script>
@@ -51,7 +61,7 @@ function checkId() {
 						<label for="memberId">아이디</label>
 							<input type="text" id="memberId" name="memberId"
 					 			placeholder="아이디는 4~15자로 입력해야 합니다.">
-					 		<button type="button" onclick="checkId()">ID중복</button>
+					 		<button type="button" onclick="checkId()" class="btn_check" id="btnCheck" value="N">ID중복</button>
 					 		<p id="check"></p>
 					 		
 					 </li> 
@@ -60,7 +70,8 @@ function checkId() {
 					placeholder="비밀번호는 4~8자의 숫자, 영어 대소문자, 특수문자로 구성되어야 합니다."></li>
 					<li><label for="passwd2">비밀번호 확인</label> <input type="password" id="passwd2" name="passwd2"
 					  		placeholder="첫번째꺼랑 같게 설정해줘요"></li>
-					<li><label for="name">이름</label> <input type="text" id="name" name="name"></li>
+					<li><label for="name">이름</label> <input type="text" id="name" name="name"
+							placeholder="이름은 한글만 가능합니다."></li>
 					<li><label for="gender">성별</label>
 						<label><input type="radio" name="gender" value="남" checked="checked">남</label>
 						<label><input type="radio" name="gender" value="여">여</label>

@@ -18,9 +18,18 @@ public class CheckId extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset = utf-8");
+		MemberDAO memberDAO = new MemberDAO();
+
 		PrintWriter out = response.getWriter();
 		String id = request.getParameter("memberId");
-		MemberDAO memberDAO = new MemberDAO();
+		int duplicatedID = memberDAO.checkId(id);
+		if (duplicatedID == 1) {
+			out.println("not_usable");
+		}else {
+			out.println("usable");
+		}
+		
+		/*
 		boolean duplicatedID = memberDAO.checkId(id);
 		System.out.println(duplicatedID);
 		
@@ -30,6 +39,7 @@ public class CheckId extends HttpServlet {
 		}else {
 			out.println("usable");
 		}
+		*/
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

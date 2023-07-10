@@ -143,6 +143,15 @@ Controller 만들기(서블릿)
 
 ※ 참고로 type 속성에 오는 값은 date time both 형식 3가지가 있음
 
+===================================================================
+functions - 문자열 처리
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+p><c:set var="text" value="${fn:split('Hello, Java Server Page', ' ') }"/> </p>
+<h2>Java 문자열 연결</h2>
+	<p>${fn:join(text, '-') }</p>
+	<p>${fn:join("수박 사과 딸기, '-') }</p>
+
 
 ======오늘 공부할 목록==========
 확장자 jar

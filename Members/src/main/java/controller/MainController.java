@@ -145,11 +145,32 @@ public class MainController extends HttpServlet {
 		
 		// 게시판 관리
 		if (command.equals("/boardList.do")) {
-			ArrayList<Board> boardList = boardDAO.getBoardList();
+			
+			
+			// 페이징 처리
+			String pageNum = request.getParameter("pageNum");
+			if (pageNum==null) { //pageNum이 없으면 기본 1페이지
+				pageNum = "1";
+			}
+			// 각페이지의 첫행 : 1page -> 1번, 2page -> 11번
+			int currentPage = Integer.parseInt(pageNum);
+			int pageSize = 10;
+			int startRaw = (currentPage-1) * pageSize + 1;
+			
+			// 시작 페이지 : 13번 -> 2페이지 23번 -> 3페이지
+			int startPage = startRaw / pageSize + 1;
+			
+			// 종료 페이지
+			int total = boardDAO.getBoardCount(); // 총행수가 나누어 떨어지면 않으면 페이지수에 1을 더함
+			int endPage = total / pageSize;
+			endPage = (int) Math.ceil((double) total / pageSize);
+			
+			ArrayList<Board> boardList = boardDAO.getBoardList(currentPage);
 			
 			// 모델 생성
 			request.setAttribute("boardList", boardList);
-	
+			request.setAttribute("currentPage", currentPage);
+			request.setAttribute("endPage", endPage);
 			nextPage = "board/boardList.jsp";			
 		}else if (command.equals("/boardFrom.do")) {
 			nextPage = "board/boardForm.jsp";

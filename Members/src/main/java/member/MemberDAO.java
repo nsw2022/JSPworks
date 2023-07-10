@@ -116,6 +116,7 @@ public class MemberDAO {
 	}// 로그인 체크checkLogin()
 	
 	// ID 중복확인
+	/*
 	public boolean checkId(String memberId) {
 		boolean result = false;
 		
@@ -135,7 +136,32 @@ public class MemberDAO {
 			JDBCUtil.close(conn, psmt, rs);
 		}
 		return result;
-	}
+		*/
+	//}// ID 중복확인checkId
+	
+	public int checkId(String memberId) {
+		int result = 0;
+		
+		conn = JDBCUtil.getConnection();
+		String sql="select count(*) as result from t_member where memberid = ?";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1,  memberId);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt("result");// 칼럼이 result인값 추출해줌
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, psmt, rs);
+		}
+		return result;
+		
+	}// ID 중복확인checkId
+
+
 
 	
 	
