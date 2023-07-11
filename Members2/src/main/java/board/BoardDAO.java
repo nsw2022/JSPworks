@@ -41,18 +41,14 @@ public class BoardDAO {
 	}
 	
 	// 자료 검색
-	public ArrayList<Board> getBoardList(int page){
+	public ArrayList<Board> getBoardList(int startRow, int pageSize){
 		ArrayList<Board> boardList = new ArrayList<>();
-		int pageSize = 10;
-		conn = JDBCUtil.getConnection();
-		String sql = "SELECT * "
-				+ "FROM (SELECT ROWNUM RN, t_board.* "
-				+ "FROM t_board ORDER BY bnum desc) "
-				+ "WHERE RN >= ? AND RN <= ?";
 		try {
+			conn = JDBCUtil.getConnection();
+			String sql = "select * from t_board order by bnum desc limit ?, ?";
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, (page-1)*pageSize + 1);  //시작행
-			psmt.setInt(2, page*pageSize);  //페이지x페이지당 게시글 수
+			psmt.setInt(1, startRow-1);  //시작행(limit는 시작행 0, 10, 20)
+			psmt.setInt(2, pageSize);  //페이지당 게시글수(10)
 			rs = psmt.executeQuery();
 			while(rs.next()) {
 				Board board = new Board();
@@ -73,7 +69,39 @@ public class BoardDAO {
 		}
 		return boardList;
 	}
-	
+	/*
+	public ArrayList<Board> getBoardList(int page){
+		ArrayList<Board> boardList = new ArrayList<>();
+		int pageSize = 10;
+		
+		
+		conn = JDBCUtil.getConnection();
+		String sql = "select * from t_board order by bnum desc limit ?, ?;";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, (page-1)*pageSize);  // 시작 행
+			psmt.setInt(2, pageSize);  // 페이지당 게시글 수
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				Board board = new Board();
+				board.setBnum(rs.getInt("bnum"));
+				board.setTitle(rs.getString("title"));
+				board.setContent(rs.getString("content"));
+				board.setRegDate(rs.getTimestamp("regdate"));
+				board.setModifyDate(rs.getTimestamp("modifydate"));
+				board.setHit(rs.getInt("hit"));
+				board.setMemberId(rs.getString("memberid"));
+				
+				boardList.add(board);  //개별 board 객체를 추가 저장
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(conn, psmt, rs);
+		}
+		return boardList;
+	}
+	*/
 	/*
 	 public ArrayList<Board> getBoardList(int page) {
 	      ArrayList<Board> boardList = new ArrayList<>();
@@ -125,7 +153,7 @@ public class BoardDAO {
 	public ArrayList<Board> getBoardList() {
 		ArrayList<Board> boardList = new ArrayList<>();
 		conn = JDBCUtil.getConnection();
-		String sql = "select * from t_board order by regdate desc";
+		String sql = "select * from t_board order by bunm desc";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
@@ -152,7 +180,9 @@ public class BoardDAO {
 	// 게시글 쓰기
 	public void addBoard(Board board) {
 		conn = JDBCUtil.getConnection();
-		String sql = "INSERT INTO t_board(bnum, title, content, memberId, fileupload) " + "VALUES(b_seq.nextval, ?, ?, ?, ?)";
+		String sql = "INSERT INTO t_board(title, content, memberId, fileupload) " + "VALUES(?, ?, ?, ?)";
+		
+
 
 		try {
 			psmt = conn.prepareStatement(sql);

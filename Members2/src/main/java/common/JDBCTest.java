@@ -23,7 +23,7 @@ public class JDBCTest {
 			Connection conn = null;
 			try {
 				Class.forName(driverClass);
-				System.out.println("Orcle 드라이버 로딩");
+				System.out.println("mysql 드라이버 로딩");
 				conn = DriverManager.getConnection(url,username,password);
 				System.out.println("Connection 객체 생성 " + conn);
 			} catch (ClassNotFoundException e) {

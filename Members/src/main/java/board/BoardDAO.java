@@ -45,10 +45,10 @@ public class BoardDAO {
 		ArrayList<Board> boardList = new ArrayList<>();
 		int pageSize = 10;
 		conn = JDBCUtil.getConnection();
-		String sql = "SELECT * "
-				+ "FROM (SELECT ROWNUM RN, t_board.* "
-				+ "FROM t_board ORDER BY bnum desc) "
-				+ "WHERE RN >= ? AND RN <= ?";
+		String sql = "select *"
+				+ "from (select rownum rn, board.*"
+				+ "      from (select * from t_board order by bnum desc) board)"
+				+ "where rn >= ? and rn <= ?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, (page-1)*pageSize + 1);  //시작행
