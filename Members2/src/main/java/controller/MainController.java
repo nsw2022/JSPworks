@@ -22,6 +22,8 @@ import board.BoardDAO;
 import member.Member;
 import member.MemberDAO;
 import oracle.net.aso.l;
+import reply.Reply;
+import reply.ReplyDAO;
 
 @WebServlet("*.do") // 경로를 .do로 끝나도록 설정
 public class MainController extends HttpServlet {
@@ -29,11 +31,13 @@ public class MainController extends HttpServlet {
 	
 	MemberDAO memberDAO; // DAO 객체 선언
 	BoardDAO boardDAO; // BoardDAO 객체 선언
+	ReplyDAO replyDAO; // 댓글관리
 
 
 	public void init(ServletConfig config) throws ServletException {
-		memberDAO = new MemberDAO(); // DAO 객체 생성
-		boardDAO = new BoardDAO();// BoardDAO 객체 생성
+		memberDAO = new MemberDAO(); // DAO 객체 생성 // 회원 관리
+		boardDAO = new BoardDAO();// BoardDAO 객체 생성 // 게시글관리
+		replyDAO = new ReplyDAO();// 댓글관리
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -217,10 +221,13 @@ public class MainController extends HttpServlet {
 			int bnum = Integer.parseInt( request.getParameter("bnum") );
 			
 			Board board = boardDAO.getBoard(bnum); // 글상세보기
-			
+
+			ArrayList<Reply> replyList = replyDAO.getReplyList(bnum); // 게시글 가져오기 처리
 			
 			// 모델생성
 			request.setAttribute("board", board);
+			request.setAttribute("replyList", replyList);
+
 			
 			nextPage = "board/boardView.jsp";
 		}

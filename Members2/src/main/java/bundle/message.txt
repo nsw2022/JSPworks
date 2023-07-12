@@ -1,0 +1,23 @@
+/* login(로그인) */
+
+login.title = 로그인
+login.id = 아이디
+login.passwd = 비밀번호
+login.button = 로그인
+
+/* memberForm(회원가입) */
+signup.title = 회원가입
+signup.id = 아이디
+signup.passwd = 비밀번호
+signup.passwd2 = 비밀번호확인
+signup.name = 이름
+signup.gender=성별
+signup.man = 남
+signup.woman = 여
+signup.join = 가입
+signup.cancel = 취소
+signup.idcheck = ID중복
+signup.idplaceholder = 아이디는 4~15자로 입력해야합니다.
+signup.passwdplaceholder = 비밀번호는 4~8숫자, 영어 대소문자, 특수문자로 구성되어야 합니다.
+signup.passwd2placeholder = 비밀번호 확인 처음입력하신 비밀번호와 같게 입력하세요.
+signup.nameplaceholder = 이름은 한글만 가능합니다.

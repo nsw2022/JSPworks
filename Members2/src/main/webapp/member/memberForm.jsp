@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+
 <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
 <script type="text/javascript" src="../resources/js/validation.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -48,43 +50,51 @@ function checkId() {
 </script>
 </head>
 <body>
+<!-- 다국어 Locale 설정 -->
+<fmt:setLocale value="${param.Language }"/>
+<fmt:bundle basename="bundle.message" >
 <jsp:include page="../hearder.jsp" />
 <div id="container">
+<div class="Language">
+				<a href="?Language=ko">한국어</a> | 
+				<a href="?Language=en">English</a>
+			</div>
 	<section id="register">
-		<h2>회원 가입</h2>
+		<h2><fmt:message key="signup.title" /> </h2>
 		<form action="addMember.do" method="post" name="member">
 			<input type="hidden" id="good" name="good">
 			
 			<fieldset>
 				<ul>
 					<li>	
-						<label for="memberId">아이디</label>
+						<label for="memberId"><fmt:message key="signup.id" /></label>
 							<input type="text" id="memberId" name="memberId"
-					 			placeholder="아이디는 4~15자로 입력해야 합니다.">
-					 		<button type="button" onclick="checkId()" class="btn_check" id="btnCheck" value="N">ID중복</button>
+					 			placeholder="<fmt:message key='signup.idplaceholder' />">
+					 		<button type="button" onclick="checkId()" class="btn_check" id="btnCheck" value="N"><fmt:message key="signup.idcheck" /></button>
 					 		<p id="check"></p>
 					 		
 					 </li> 
 					 
-					<li><label for="passwd1">비밀번호</label> <input type="password" id="passwd1" name="passwd1"
-					placeholder="비밀번호는 4~8자의 숫자, 영어 대소문자, 특수문자로 구성되어야 합니다."></li>
-					<li><label for="passwd2">비밀번호 확인</label> <input type="password" id="passwd2" name="passwd2"
-					  		placeholder="첫번째꺼랑 같게 설정해줘요"></li>
-					<li><label for="name">이름</label> <input type="text" id="name" name="name"
-							placeholder="이름은 한글만 가능합니다."></li>
-					<li><label for="gender">성별</label>
-						<label><input type="radio" name="gender" value="남" checked="checked">남</label>
-						<label><input type="radio" name="gender" value="여">여</label>
+					<li><label for="passwd1"><fmt:message key="signup.passwd" /></label> <input type="password" id="passwd1" name="passwd1"
+					placeholder="<fmt:message key='signup.passwdplaceholder' />"></li>
+					<li><label for="passwd2"><fmt:message key="signup.passwd2" /></label> <input type="password" id="passwd2" name="passwd2"
+					  		placeholder="<fmt:message key='signup.passwd2placeholder' />"></li>
+					<li><label for="name"><fmt:message key="signup.name" /></label> <input type="text" id="name" name="name"
+							placeholder="<fmt:message key='signup.nameplaceholder' />"></li>
+					<li><label for="gender"><fmt:message key="signup.gender" /></label>
+						<label><input type="radio" name="gender" value="남" checked="checked"><fmt:message key='signup.man' /></label>
+						<label><input type="radio" name="gender" value="여"><fmt:message key='signup.woman' /></label>
 					</li>
 				</ul>
 			</fieldset>
 			<div class="button">
-				<button type="button" onclick="checkMember()" style="padding: 10px;">가입</button>
-				<button type="reset" style="padding: 10px;">취소</button>
+				<button type="button" onclick="checkMember()" style="padding: 10px;"><fmt:message key="signup.join" /></button>
+				<button type="reset" style="padding: 10px;"><fmt:message key="signup.cancel" /></button>
 			</div>
 		</form>
 	</section>
 </div>
 <jsp:include page="../footer.jsp" />
+</fmt:bundle>
 </body>
 </html>
