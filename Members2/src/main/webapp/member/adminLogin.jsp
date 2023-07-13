@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+
+
 </head>
 <body>
 	<jsp:include page="../hearder.jsp" />

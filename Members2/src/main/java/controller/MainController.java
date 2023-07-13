@@ -69,7 +69,28 @@ public class MainController extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//회원 목록 조회
-		if (command.equals("/memberList.do")) {
+		/*
+		if (command.equals("/index.do")) {
+			// 게시글 가져오기
+			ArrayList<Board> boardList = boardDAO.getBoardList();
+			int size = boardList.size();
+			// 최신게시글 3개를 담을 배열 생성
+			Board[] newBoardList = {boardList.get(size-1), boardList.get(size-2), boardList.get(size-3)};
+			
+			// 모델 생성
+			request.setAttribute("boardList", newBoardList);
+			*/
+			
+		if (command.equals("/index.do")) {
+		    // 최근 게시글 3개 조회
+		    ArrayList<Board> recentBoards = boardDAO.getRecentBoards(3);
+		    
+		    // 조회 결과를 request에 저장하여 index.jsp로 전달
+		    request.setAttribute("recentBoards", recentBoards);
+		    System.out.println(recentBoards);
+		    nextPage = "/main.jsp";			
+			
+		}else if (command.equals("/memberList.do")) {
 			ArrayList<Member> memberList = memberDAO.getMemberList();
 			
 			// 모델 생성 보내기
@@ -146,6 +167,8 @@ public class MainController extends HttpServlet {
 			session.invalidate();
 			nextPage="/index.jsp";
 		}
+		
+		
 		
 		// 게시판 관리
 		if (command.equals("/boardList.do")) {
@@ -273,6 +296,20 @@ public class MainController extends HttpServlet {
 		}
 		else if (command.equals("/memberEvent.do")) {
 			nextPage="member/memberEvent.jsp";
+		}else if (command.equals("/addReply.do")) {
+			int bnum = Integer.parseInt( request.getParameter("bnum") );
+			
+			String rcontent = request.getParameter("rcontent");
+			String replyer = request.getParameter("replyer");
+			
+			Reply reply = new Reply();
+			reply.setBnum(bnum);
+		
+			reply.setRecontent(rcontent);
+			reply.setReplyer(replyer);
+			
+			replyDAO.addReply(reply); // 댓글 등록처리
+			
 		}
 
 		
@@ -281,7 +318,11 @@ public class MainController extends HttpServlet {
 		// 포워딩
 		if (command.equals("/addBoard.do")) {
 			response.sendRedirect("/boardList.do");
-		}else {
+		}else if (command.equals("/addReply.do")) {
+			int bnum = Integer.parseInt( request.getParameter("bnum") );
+			response.sendRedirect("/boardView.do?bnum="+bnum);
+		}
+		else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
 			dispatcher.forward(request, response);
 			

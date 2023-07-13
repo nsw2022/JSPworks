@@ -6,7 +6,7 @@
 <header>
 	<div id="logo">
 		<h1>
-			<a href="index.jsp">Gangnam</a>
+			<a href="/index.do">Gangnam</a>
 		</h1>
 	</div>
 	<nav>

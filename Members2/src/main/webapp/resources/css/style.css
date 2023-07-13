@@ -10,6 +10,7 @@ h2{text-align: center;}
 #main{margin: 20px auto; text-align: center;}
 .main_img{margin: 0 20px;}
 .main_img img{border-radius: 10px;}
+#recent_board{text-align: left;}
 
 /* header 스타일 */
 header{height: 100px;background: #0077cc;}
@@ -167,4 +168,33 @@ p#display {
  /*  transition: all 3s ease; */
 }
 
+/* 댓글쓰기 */
+	.reply {
+		border: 1px solid #ccc;
+		padding: 10px;
+		margin-bottom: 10px;
+		border-radius: 8px;
+		text-align: left;
+	}
+
+	.reply p {
+		margin: 0;
+	}
+
+	.replyer {
+		margin-top: 10px;
+		color: #999;
+		text-align: right;
+	}
+	
+
+	#replyForm textarea{
+		padding: 10px; 
+		resize: none;
+	}
+	
+	#replybutton{
+		float: right;
+		padding: 5px 12px;
+	}
 

@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import org.apache.catalina.tribes.transport.RxTaskPool;
+
 import common.JDBCUtil;
 import oracle.net.aso.l;
 
@@ -176,6 +178,36 @@ public class BoardDAO {
 
 		return boardList;
 	}// 게시글 목록 getBoardList()
+	
+	
+	// 강사님버전 3개추출
+	public ArrayList<Board> getBoardList(int limt) {
+		ArrayList<Board> boardList = new ArrayList<>();
+		conn = JDBCUtil.getConnection();
+		String sql = "select * from t_board order by bunm desc";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				Board board = new Board();
+				board.setBnum(rs.getInt("bnum"));
+				board.setTitle(rs.getString("title"));
+				board.setContent(rs.getString("content"));
+				board.setRegDate(rs.getTimestamp("regdate"));
+				board.setModifyDate(rs.getTimestamp("modifydate"));
+				board.setHit(rs.getInt("hit"));
+				board.setMemberId(rs.getString("memberid"));
+				boardList.add(board); // 개별 Board 객체를 추가
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return boardList;
+	}
+	// 강사님버전 3개추출
 
 	// 게시글 쓰기
 	public void addBoard(Board board) {
@@ -294,9 +326,43 @@ public class BoardDAO {
 			JDBCUtil.close(conn, psmt);
 		}
 		
-		
-		
+	}// 게시글 수정
+	
+	// 최근 게시글 3개
+	public ArrayList<Board> getRecentBoards(int limit) {
+	    conn = JDBCUtil.getConnection();
+	    String sql = "SELECT * FROM t_board "
+	            + "ORDER BY bnum DESC "
+	            + "LIMIT ?";
+
+	    ArrayList<Board> recentBoards = new ArrayList<>();
+
+	    try {
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setInt(1, limit);
+	        rs = psmt.executeQuery();
+
+	        while (rs.next()) {
+	            Board board = new Board();
+	            board.setBnum(rs.getInt("bnum"));
+	            board.setTitle(rs.getString("title"));
+	            board.setContent(rs.getString("content"));
+	            board.setRegDate(rs.getTimestamp("regdate"));
+	            board.setModifyDate(rs.getTimestamp("modifydate"));
+	            board.setHit(rs.getInt("hit"));
+	            board.setMemberId(rs.getString("memberid"));
+
+	            recentBoards.add(board);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCUtil.close(conn, psmt, rs);
+	    }
+
+	    return recentBoards;
 	}
+
 }
 
 	
