@@ -310,6 +310,25 @@ public class MainController extends HttpServlet {
 			
 			replyDAO.addReply(reply); // 댓글 등록처리
 			
+		}else if (command.equals("/deleteMe.do")) { // 회원 삭제 요청
+			String memberId = request.getParameter("memberId");
+			boardDAO.deleteMember(memberId);
+			// 세션 모두삭제
+			session.invalidate();
+			nextPage = "/index.do";			
+		}
+		else if (command.equals("/updateMember.do")) { // 게시글 상세보기 수정전 모델작업
+			int memberid = Integer.parseInt(request.getParameter("memberid"));
+			
+			Member member = new Member();
+			
+			member = memberDAO.memberUpdate(member);
+			
+			board = boardDAO.getBoard(memberid);
+			
+			request.setAttribute("board", board);
+			
+			nextPage = "/board/boardUpdate.jsp";
 		}
 
 		

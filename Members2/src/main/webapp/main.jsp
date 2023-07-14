@@ -28,6 +28,7 @@
 				<c:forEach var="board" items="${recentBoards}">
 					<li><a href="/boardView.do?bnum=${board.bnum}">${board.title}-<fmt:formatDate value="${board.regDate}"
 											pattern="yyyy-MM-dd" /> -글쓴이${board.memberId}</a></li>
+											
 				</c:forEach>
 			</ul>
 		</div>

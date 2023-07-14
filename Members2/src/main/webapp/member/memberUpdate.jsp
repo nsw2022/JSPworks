@@ -10,19 +10,19 @@
 </head>
 <body>
 	<jsp:include page="../hearder.jsp" />
-	<h2 style="margin-top: 40px;">회원 정보</h2>
+	<h2 style="margin-top: 40px;">회원 수정</h2>
 	<table id="detaile">
 		<tr>
 			<td><label>아이디</label></td>
-			<td><input type="text" name="memberId" value="${member.memberId}" readonly="readonly"></td>
+			<td><input type="text" name="memberId" value="${member.memberId}" ></td>
 		</tr>
 		<tr>
 			<td><label>비밀번호</label></td>
-			<td><input type="password" name="passwd" value="${member.passwd }" readonly="readonly"></td>
+			<td><input type="password" name="passwd" value="${member.passwd }"></td>
 		</tr>
 		<tr>
 			<td><label>이름</label></td>
-			<td><input type="text" name="name" value="${member.name}" readonly="readonly"></td>
+			<td><input type="text" name="name" value="${member.name}"></td>
 		</tr>
 		<tr>
 			<td><label>성별</label></td>
@@ -48,11 +48,6 @@
 				<a href="/updateMember.do?memberId=${member.memberId }"
 					onclick="return confirm('정말로 수정하시겠습니까?')">
 					<button type="button">수정</button>
-				</a>
-			
-				<a href="/deleteMe.do?memberId=${member.memberId }"
-					onclick="return confirm('정말로 삭제하시겠습니까?')">
-					<button type="button">삭제</button>
 				</a>
 				
 				<a href="/memberList.do">

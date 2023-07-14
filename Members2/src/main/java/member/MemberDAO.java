@@ -49,7 +49,7 @@ public class MemberDAO {
 				member.setPasswd(rs.getString("passwd"));
 				member.setName(rs.getString("name"));
 				member.setGender(rs.getString("gender"));
-				member.setJoinDate(rs.getDate("joinDate"));
+				member.setJoinDate(rs.getTimestamp("joindate"));
 				
 				memberList.add(member);
 				
@@ -81,7 +81,7 @@ public class MemberDAO {
 				member.setPasswd(rs.getString("passwd"));
 				member.setName(rs.getString("name"));
 				member.setGender(rs.getString("gender"));
-				member.setJoinDate(rs.getDate("joinDate"));
+				member.setJoinDate(rs.getTimestamp("joindate"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -162,7 +162,26 @@ public class MemberDAO {
 		return result;
 		
 	}// ID 중복확인checkId
-
+	
+	
+	public void memberUpdate(Member member) {
+		conn = JDBCUtil.getConnection();
+		String sql = "update t_member set passwd = ? name = ? gender = ?"
+				+ " where memberid = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, member.getMemberId());
+			psmt.setString(2, member.getName());
+			psmt.setString(3, member.getGender());
+			psmt.setString(4, member.getMemberId());
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			JDBCUtil.close(conn, psmt);
+		}
+	}
 
 
 	
