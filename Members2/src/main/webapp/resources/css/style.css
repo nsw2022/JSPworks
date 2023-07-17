@@ -38,7 +38,7 @@ nav{float: right; width:70%;height: 100px;}
 
 /* boardlist 스타일 게시판  */
 #boardlist{width: 550px; margin: 40px auto;}
-#boardlist table{width: 550px; margin: 30px auto;}
+#boardlist table{width: 550px; margin: 0 auto 30px;}
 #boardlist table th{background: #eee;}
 #boardlist table, th, td{border: 1px solid #ccc;
 	border-collapse: collapse; text-align: center;
@@ -47,6 +47,10 @@ nav{float: right; width:70%;height: 100px;}
 #boardlist table, th, td:last-child(){padding: 0;}
 #boardlist .btnWrite{text-align: right;margin-right: 10px;}
 #boardlist .btnWrite a button{padding: 10px;}
+.search_form{text-align: right; margin:30px 0 5px 0;}
+.search_form input{padding: 5px;}
+.search_form button{padding: 3px;}
+.search_form select{padding: 6px;}
 
 /* register 회원가입 */
 #register{width: 800px; margin: 30px auto;}

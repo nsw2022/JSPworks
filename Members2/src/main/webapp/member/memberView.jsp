@@ -13,27 +13,58 @@
 	<h2 style="margin-top: 40px;">회원 정보</h2>
 	<table id="detaile">
 		<tr>
-			<td><label>아이디</label></td>
-			<td><input type="text" name="memberId" value="${member.memberId}" readonly="readonly"></td>
+			<td>
+				<label>아이디</label>
+			</td>
+			
+			<td>
+				<input type="text" name="memberId" value="${member.memberId}" readonly="readonly">
+			</td>
 		</tr>
+		
 		<tr>
-			<td><label>비밀번호</label></td>
-			<td><input type="password" name="passwd" value="${member.passwd }" readonly="readonly"></td>
+			<td>
+				<label>비밀번호</label>
+			</td>
+			
+			<td>
+				<input type="password" name="passwd" value="${member.passwd}" readonly="readonly">
+			</td>
 		</tr>
+		
 		<tr>
-			<td><label>이름</label></td>
-			<td><input type="text" name="name" value="${member.name}" readonly="readonly"></td>
+			<td>
+				<label>이름</label>
+			</td>
+			
+			<td>
+				<input type="text" name="name" value="${member.name}" readonly="readonly">
+			</td>
 		</tr>
+		
 		<tr>
-			<td><label>성별</label></td>
+			<td>
+				<label>성별</label>
+			</td>
+			
 			<td>
 				<c:if test="${member.gender eq '남' }">
-				<label><input type="radio" name="gender" value="남" checked="checked">남</label>
-				<label><input type="radio" name="gender" value="여">여</label>
+				<label>
+					<input type="radio" name="gender" value="남" checked="checked">남
+				</label>
+				
+				<label>
+					<input type="radio" name="gender" value="여">여
+				</label>
+				
 				</c:if>
-				<c:if test="${member.gender eq '여' }">
-				<label><input type="radio" name="gender" value="남" >남</label>
-				<label><input type="radio" name="gender" value="여" checked="checked">여</label>
+					<c:if test="${member.gender eq '여' }">
+						<label>
+							<input type="radio" name="gender" value="남" >남
+						</label>
+						<label>
+							<input type="radio" name="gender" value="여" checked="checked">여
+						</label>
 				</c:if>
 			</td>
 		</tr>
@@ -45,7 +76,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" class="memberViewBtn">
-				<a href="/updateMember.do?memberId=${member.memberId }"
+				<a href="/updateMemberForm.do?memberId=${member.memberId}"
 					onclick="return confirm('정말로 수정하시겠습니까?')">
 					<button type="button">수정</button>
 				</a>

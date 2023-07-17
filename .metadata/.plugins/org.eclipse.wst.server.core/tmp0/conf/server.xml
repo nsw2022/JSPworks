@@ -159,8 +159,8 @@
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
-	  <Context docBase="E:/NSW/green_project/JSPworks/Jspwork/src/main/webapp/upload" path="/upload"/>
-      <Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\AddressBook" path="/1" reloadable="true" source="org.eclipse.jst.jee.server:AddressBook"/><Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Jspwork" path="/Jspwork" reloadable="true" source="org.eclipse.jst.jee.server:Jspwork"/><Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Members2" path="" reloadable="true" source="org.eclipse.jst.jee.server:Members2"/></Host>
+	  
+      <Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Members2" path="" reloadable="true" source="org.eclipse.jst.jee.server:Members2"/></Host>
     </Engine>
   </Service>
 </Server>

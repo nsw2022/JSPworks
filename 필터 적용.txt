@@ -1,0 +1,18 @@
+Jsp-web.xml
+필터(Filter) - 한글 인코딩, 보안, 로그(log)
+
+doFilter(
+              ServletRequest request,
+              ServletResponse response,
+              FilterChain chain
+)
+
+
+Members2 적용
+
+filter02.jsp
+security 역할(인증)
+
+
+
+

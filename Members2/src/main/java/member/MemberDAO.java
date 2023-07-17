@@ -164,24 +164,24 @@ public class MemberDAO {
 	}// ID 중복확인checkId
 	
 	
-	public void memberUpdate(Member member) {
-		conn = JDBCUtil.getConnection();
-		String sql = "update t_member set passwd = ? name = ? gender = ?"
-				+ " where memberid = ?";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, member.getMemberId());
-			psmt.setString(2, member.getName());
-			psmt.setString(3, member.getGender());
-			psmt.setString(4, member.getMemberId());
-			psmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			JDBCUtil.close(conn, psmt);
-		}
+	public Member memberUpdate(Member member) {
+	    conn = JDBCUtil.getConnection();
+	    String sql = "UPDATE t_member SET passwd = ?, name = ?, gender = ? WHERE memberid = ?";
+	    try {
+	        psmt = conn.prepareStatement(sql);
+	        psmt.setString(1, member.getPasswd()); // 비밀번호 값 설정
+	        psmt.setString(2, member.getName());
+	        psmt.setString(3, member.getGender());
+	        psmt.setString(4, member.getMemberId());
+	        psmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCUtil.close(conn, psmt);
+	    }
+	    return member;
 	}
+
 
 
 	

@@ -69,21 +69,44 @@ function checkId() {
 					<li>	
 						<label for="memberId"><fmt:message key="signup.id" /></label>
 							<input type="text" id="memberId" name="memberId"
-					 			placeholder="<fmt:message key='signup.idplaceholder' />">
+					 			placeholder="<fmt:message key='signup.idplaceholder' />" readonly="readonly">
 					 		<button type="button" onclick="checkId()" class="btn_check" id="btnCheck" value="N"><fmt:message key="signup.idcheck" /></button>
 					 		<p id="check"></p>
 					 		
 					 </li> 
 					 
-					<li><label for="passwd1"><fmt:message key="signup.passwd" /></label> <input type="password" id="passwd1" name="passwd1"
-					placeholder="<fmt:message key='signup.passwdplaceholder' />"></li>
-					<li><label for="passwd2"><fmt:message key="signup.passwd2" /></label> <input type="password" id="passwd2" name="passwd2"
-					  		placeholder="<fmt:message key='signup.passwd2placeholder' />"></li>
-					<li><label for="name"><fmt:message key="signup.name" /></label> <input type="text" id="name" name="name"
-							placeholder="<fmt:message key='signup.nameplaceholder' />"></li>
-					<li><label for="gender"><fmt:message key="signup.gender" /></label>
-						<label><input type="radio" name="gender" value="남" checked="checked"><fmt:message key='signup.man' /></label>
-						<label><input type="radio" name="gender" value="여"><fmt:message key='signup.woman' /></label>
+					<li>
+						<label for="passwd1">
+							<fmt:message key="signup.passwd" />
+						</label>
+						<input type="password" id="passwd1" name="passwd1"
+							placeholder="<fmt:message key='signup.passwdplaceholder' />">
+					</li>
+					
+					<li>
+						<label for="passwd2">
+							<fmt:message key="signup.passwd2" />
+						</label> 
+						<input type="password" id="passwd2" name="passwd2"
+					  		placeholder="<fmt:message key='signup.passwd2placeholder' />">
+			  		</li>
+			  		
+					<li>
+						<label for="name">
+							<fmt:message key="signup.name" /></label>
+							<input type="text" id="name" name="name"
+								placeholder="<fmt:message key='signup.nameplaceholder' />">
+					</li>
+					
+					<li>
+						<label for="gender"><fmt:message key="signup.gender" /></label>
+						<label><input type="radio" name="gender" value="남" checked="checked">
+							<fmt:message key='signup.man' />
+						</label>
+						
+						<label>
+							<input type="radio" name="gender" value="여"><fmt:message key='signup.woman' />
+						</label>
 					</li>
 				</ul>
 			</fieldset>
