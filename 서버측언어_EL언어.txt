@@ -5,12 +5,18 @@
 jsp태그
 el(jstl)언어 - 템플릿 언어, 
 
-
-
-
 Java Server Page
 서버측(서버사이드) 언어
 JSP ASP PHP
 
 프레임워크
 스프링(servlet(제어),Jsp(화면) ), 장고(파이썬), 리엑트(자바스크립트), 닷넷프레임워크(C#과 ASP)
+================================================================
+jsp > lib > jstl.jar, cos.jar, mysql.jar
+
+Maven 프로젝트 방식
+spring > pom.xml > 의존성(dependency)
+================================================================
+jstl - 템플릿 엔진
+
+webapp > jstl_ex
