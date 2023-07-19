@@ -1,0 +1,7 @@
+Maven
+복잡한 프로젝트의 소스를 체계적으로 컴파일하고 
+관련 라이브러리의 버전이나 종속성 관리를 쉽게 도와주는 tool(도구)이다.
+
+
+프로젝트 > 우클릭 > configure > Convert to Maven Project
+
