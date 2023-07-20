@@ -19,6 +19,7 @@
 <script src="https://kit.fontawesome.com/187dabceeb.js"
 	crossorigin="anonymous" type="application/javascript"></script>
 <link rel="stylesheet" type="text/css" href="../resource/css/style.css">
+
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
