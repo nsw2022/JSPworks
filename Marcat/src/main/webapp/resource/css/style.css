@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* 상당 헤드 네브바 설정 */
+.nav-link:hover{background-color:#333; color:white;transition: all 0.8s ease;}
+
+/* 글작성 폼 설정 */
+.form-group{margin-bottom: 10px;}
+
+/* 상품 리스트 ProductList */
+#product_list{
+	padding-top: 8px;
+	
+}
