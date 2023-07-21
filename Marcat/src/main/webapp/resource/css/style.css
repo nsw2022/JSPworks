@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+body{font-family: sans-serif;}
+
 /* 상당 헤드 네브바 설정 */
 .nav-link:hover{background-color:#333; color:white;transition: all 0.8s ease;}
 

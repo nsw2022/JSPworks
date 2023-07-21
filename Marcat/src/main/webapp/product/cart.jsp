@@ -33,7 +33,7 @@
 						<a href="/deleteCart.do" class="btn btn-danger">삭제하기</a>
 					</td>
 					<td align="right">
-						<a href="/shippingInfo.do?cartId=${cartId}" class="btn btn-success">주문하기</a>
+						<a href="/shoppingInfo.do?cartId=${cartId}" class="btn btn-success">주문하기</a>
 					</td>
 				</tr>
 			</table>
