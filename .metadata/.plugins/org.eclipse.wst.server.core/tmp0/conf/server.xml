@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 	  
-      <Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Members2" path="/1" reloadable="true" source="org.eclipse.jst.jee.server:Members2"/><Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Jspwork2" path="/Jspwork2" reloadable="true" source="org.eclipse.jst.jee.server:Jspwork2"/><Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Members" path="/Members" reloadable="true" source="org.eclipse.jst.jee.server:Members"/><Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Marcat" path="" reloadable="true" source="org.eclipse.jst.jee.server:Marcat"/></Host>
+      <Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="E:\NSW\green_project\JSPworks\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\AddressBook" path="/addressbook" reloadable="true" source="org.eclipse.jst.jee.server:AddressBook"/></Host>
     </Engine>
   </Service>
 </Server>

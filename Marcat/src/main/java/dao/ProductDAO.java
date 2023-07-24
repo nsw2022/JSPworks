@@ -1,4 +1,4 @@
-package product;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import common.JDBCUtil;
+import vo.Product;
 
 public class ProductDAO {
 	Connection conn = null;

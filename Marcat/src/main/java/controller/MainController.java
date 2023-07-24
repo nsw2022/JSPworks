@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.lang.reflect.Member;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -25,18 +26,21 @@ import com.mysql.cj.Session;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import product.Product;
-import product.ProductDAO;
-@MultipartConfig
+import dao.MemberDAO;
+import dao.ProductDAO;
+import vo.Product;
+
 @WebServlet("*.do")
-public class ProductController extends HttpServlet {
+public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private ProductDAO productDAO;
+	private MemberDAO memberDAO;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		productDAO = new ProductDAO();
+		memberDAO = new MemberDAO();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,8 +60,8 @@ public class ProductController extends HttpServlet {
 
 		// 세션 생성
 		HttpSession session = request.getSession();
-
-		if (command.equals("/productList.do")) {// 상품 목록 페이지 요청
+		
+		 if (command.equals("/productList.do")) {// 상품 목록 페이지 요청
 
 			ArrayList<Product> productList = (ArrayList<Product>) productDAO.getProductList();
 			request.setAttribute("productList", productList);
@@ -67,6 +71,7 @@ public class ProductController extends HttpServlet {
 			String id = request.getParameter("productId");
 
 			Product product = productDAO.getProduct(id);
+			
 
 			// 모델 생성
 			request.setAttribute("product", product);
@@ -436,18 +441,100 @@ public class ProductController extends HttpServlet {
 			
 			nextPage = "/editProduct.do?edit=update";
 		}
+		 
+		 	//회원 Control
+			if(command.equals("/memberList.do")) { //회원 목록
+				List<vo.Member> memberList = memberDAO.getMemberList();
+				request.setAttribute("memberList", memberList);
+				nextPage = "/member/memberList.jsp";
+			} else if(command.equals("/memberForm.do")) { //회원 가입 폼 요청
+				nextPage = "/member/memberForm.jsp";
+			} else if(command.equals("/addMember.do")) {  //회원 가입 처리
+				//폼 데이터 받기  
+				String mid = request.getParameter("mid");
+				String passwd = request.getParameter("passwd1");
+				String mname = request.getParameter("mname");
+				String gender = request.getParameter("gender");
+				//birth
+				String year = request.getParameter("birthyy");
+				String month = request.getParameterValues("birthmm")[0];
+				String day = request.getParameter("birthdd");
+				String birth = year + "/" + month + "/" + day;
+				//email
+				String email1 = request.getParameter("email1");
+				String email2 = request.getParameterValues("email2")[0];
+				String email = email1 + "@" + email2;
 		
-		
-		// 페이지 포워딩
-		if (command.equals("/addCart.do")) {
-			String id = request.getParameter("productId");
-			response.sendRedirect("/productInfo.do?productId=" + id);  //상세 정보 페이지 이동
-		}else if (command.equals("/removeCart.do") || command.equals("/deleteCart.do")) {
-			response.sendRedirect("/cart.do");  //장바구니 페이지로 이동
-		}else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher(nextPage);
-			dispatcher.forward(request, response);			
+				String phone = request.getParameter("phone");
+				String address = request.getParameter("address");
+				
+				vo.Member newMember = new vo.Member();  //회원 객체 생성
+				newMember.setMid(mid);
+				newMember.setPasswd(passwd);
+				newMember.setMname(mname);
+				newMember.setGender(gender);
+				newMember.setBirth(birth);
+				newMember.setPhone(phone);
+				newMember.setEmail(email);
+				newMember.setAddress(address);
+				
+				session.setAttribute("sessionId", mid);  //세션 발급
+				memberDAO.addMember(newMember);  //회원 가입 및 자동 로그인
+				
+				nextPage="index.jsp";
+			}else if(command.equals("/loginForm.do")) { //로그인 페이지 요청
+				nextPage = "/member/loginForm.jsp";
+			}else if(command.equals("/processLogin.do")) { //로그인 처리
+				String mid = request.getParameter("mid");
+				String passwd = request.getParameter("passwd");
+				
+				vo.Member member = new vo.Member();
+				member.setMid(mid);
+				member.setPasswd(passwd);
+				
+				boolean result = memberDAO.checkLogin(member);
+				if(result) {
+					session.setAttribute("sessionId", mid);
+					nextPage = "index.jsp";
+				}else {
+					String error = "아이디나 비밀번호를 확인해 주세요";
+					request.setAttribute("error", error);
+					nextPage = "/loginForm.do";
+				}
+			}else if(command.equals("/logout.do")) { //로그아웃
+				session.invalidate();
+				nextPage = "index.jsp";
+			}else if(command.equals("/memberInfo.do")) {  //나의 정보
+				String mid = request.getParameter("mid");
+				vo.Member member = (vo.Member) memberDAO.getMember(mid);
+				request.setAttribute("member", member);
+				nextPage = "/member/memberInfo.jsp";
+			}else if (command.equals("/deleteMember.do")) {// 멤버 삭제
+				String mid = request.getParameter("mid");
+				memberDAO.delectProduct(mid);
+				session.invalidate();
+				nextPage="/main.jsp";
+				
+			}
+			
+			//페이지 이동 - 포워딩
+			if(command.equals("/addCart.do")) {
+				String id = request.getParameter("productId");
+				
+				response.sendRedirect("/productInfo.do?productId=" + id);  //상세 정보 페이지 이동
+			}else if(command.equals("/removeCart.do") || command.equals("/deleteCart.do")) {
+				response.sendRedirect("/cart.do");  //장바구니 페이지로 이동
+			}else if (command.equals("deleteMember.do")) {
+				response.sendRedirect("main.do");
+			}
+			else {
+				RequestDispatcher dispatcher = 
+						request.getRequestDispatcher(nextPage);
+				
+				dispatcher.forward(request, response);
+			}
 		}
-	}
+		
+
 
 }

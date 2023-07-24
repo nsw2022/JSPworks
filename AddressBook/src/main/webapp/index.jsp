@@ -4,14 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Welebcom~</title>
-
-
-
+<title>주소록 메인 페이지</title>
 </head>
 <body>
-	<script type="text/javascript">
-		location.href = "main.jsp"
-	</script>
+	<h2>주소록 메인입니다.</h2>
+	<h3><a href="address/addrAdd.jsp">주소록 작성</a></h3>
 </body>
 </html>

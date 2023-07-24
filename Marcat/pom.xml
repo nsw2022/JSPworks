@@ -44,8 +44,13 @@
 		    <artifactId>cos</artifactId>
 		    <version>05Nov2002</version>
 		</dependency>
-		
-		
 
+
+
+		<dependency>
+			<groupId>Jspwork2</groupId>
+			<artifactId>Jspwork2</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

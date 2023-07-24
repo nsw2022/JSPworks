@@ -13,7 +13,7 @@
 	text-align: center;
 }
 </style>
-<jsp:useBean id="product" class="product.Product"/>
+<jsp:useBean id="produ" class="w"/>
 
 </head>
 

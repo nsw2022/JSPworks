@@ -14,7 +14,7 @@
 }
 </style>
 </head>
-<jsp:useBean id="product" class="product.Product" scope="application"/>
+<jsp:useBean id="produ" class="w" scope="application"/>
 
 <body>
 	<div id="container">
