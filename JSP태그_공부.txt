@@ -1,5 +1,7 @@
+JSP는 미들웨어다
+
 ================================================
-JSP 태그 3종
+JSP 태그 3종 - 스크립트, 액션태그, EL언어
 스크립트 - HTML코드에 자바를 넣어 프로그램을 수행
 ex)
  <html>
@@ -15,15 +17,21 @@ ex)
 ...
 </html> 
 디렉티브 - 현재 jsp 페이지에 대한 정보를 설정
-ex) jsp 파일을 처음 만들면 맨위에 <@ page content...@> 등의 정보를 볼수있다 
-<% page%>
-<% include %> jsp 페이지에 다른페이지 포함
-<% taglib %> jsp 내의 사용할 태그 라이브러리 설정
+ex) jsp 파일을 처음 만들면 맨위에 <%@ page content...@%> 등의 정보를 볼수있다 
+<%@ page%>
+<%@ include %> jsp 페이지에 다른페이지 포함
+<%@ taglib %> jsp 내의 사용할 태그 라이브러리 설정
 
 pagecontext - 원페이지내에서저장 
 pageContext.setAttribute("cart", "달걀");
 <% pageContext.setAttribute("cart", "달걀"); %>
 body 안에    <h3>${cart }</h3>
+
+스크립팅 원소 servlet 부분 기술
+1.(디클레어레이션) delcaration : 클래스 정의부 
+2.(스크립틀릿) scriptlet :: _jspService() 
+선언->스크립틀릿->표현부
+
 
 ----------액션태그 - 클라이언트/서버에 어떤 작동을 행하도록 명령을 지시하는 태그---------
 <jsp: 형태로 되어있다>
@@ -39,6 +47,7 @@ param includ나 forward 안에 값을 보낼 수 있음 그렇기에 자식으�
 </jsp:includ>	
 -----------------------------------------------
 
+appli
 
 
 주석<%-- .. --%>
@@ -80,6 +89,19 @@ DAO scope=""
 requset - 어떤 페이지에서 다음 페이지 저장
 session - 세션이 발급된 영역
 application - 전체 프로그램 영역에서 저장
+
+-- jsp기본자료형--
+Scope)
+- page - this. Jsp가 서블릿으로 변환 되었을때 그 객체 자기 자신
+- request : HttpServletRequest (url 요청시 작업되는것들은 관련이있다)
+- response : HttpServletResponse 
+- seesion - HttpSession 사용자 별로 정보를 저장할때
+- application - ServletContext 웹 어플리케이션이 시작되고 종료될 때까지 변수가 유지되는 경우 사용
+===================================
+- out : JspWriter -Servlet에서 PrintWriter와 같은 역할
+- config - ServletConfig - 서블릿 초기값 정보
+- pageContext - Servlet에 없는 것으로 내장 객체들을 생성
+- exception - Throwable.Jsp가 page 지시자 태그의 isErrorpage
 
 ========EL언어(Expression Launguage)&&JSTL===============
 

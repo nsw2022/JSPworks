@@ -4542,3 +4542,16 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact servlets.com:
 2023-07-24 17:52:56,284 [Worker-11: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/Jspwork2: Jspwork2:Jspwork2:0.0.1-SNAPSHOT with classifier  to /Jspwork2/target/classes
 2023-07-24 17:58:07,753 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2023-07-24 17:58:13,215 [Worker-3: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/Jspwork2: Jspwork2:Jspwork2:0.0.1-SNAPSHOT with classifier  to /Jspwork2/target/classes
+2023-07-24 18:13:41,835 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-07-24 18:13:49,989 [Worker-0: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-07-24 18:13:49,990 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\NSW\green_project\JSPworks\Jspwork2\src\main\resources
+2023-07-24 18:13:49,995 [Worker-0: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-07-24 18:13:49,995 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\NSW\green_project\JSPworks\Jspwork2\src\test\resources
+2023-07-24 18:13:53,348 [Worker-22: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/Jspwork2: Jspwork2:Jspwork2:0.0.1-SNAPSHOT with classifier  to /Jspwork2/target/classes
+2023-07-24 18:13:53,357 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-07-24 18:13:53,358 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\NSW\green_project\JSPworks\Marcat\src\main\resources
+2023-07-24 18:13:53,360 [Worker-22: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2023-07-24 18:13:53,361 [Worker-22: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\NSW\green_project\JSPworks\Marcat\src\test\resources
+2023-07-24 18:18:51,407 [Worker-21: Retrieving catalog resource] INFO  o.a.h.c.h.i.c.HttpRequestRetryExec - Recoverable I/O exception (org.apache.hc.core5.http.NoHttpResponseException) caught when processing request to {s}->https://marketplace.eclipse.org:443
+2023-07-25 11:40:53,417 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-07-25 11:40:58,341 [Worker-9: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/Jspwork2: Jspwork2:Jspwork2:0.0.1-SNAPSHOT with classifier  to /Jspwork2/target/classes

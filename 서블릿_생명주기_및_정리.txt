@@ -1,0 +1,14 @@
+TCP 3wayhandsake 3번 왓다갔다
+
+UDP 처리속도가 빠름
+
+web sever - wars - servlretcontainer
+
+Instance 구성요소 메소드, 멤버변수 -> 클래스에 정의부에 씀
+
+Life Cycle
+Instance 생성 - init() - serviece() doGet() doPost() - destory()
+
+
+자바 LTS(Long Term Support) 정리
+
